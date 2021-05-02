@@ -1,0 +1,22 @@
+.flex {
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(53, 52, 52);
+  align-items: center;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+#table1{
+  width: 105%;
+  }
+  
+  #table1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: white;
+    
+  }

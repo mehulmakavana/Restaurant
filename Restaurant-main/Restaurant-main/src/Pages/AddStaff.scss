@@ -1,0 +1,187 @@
+.base-container {
+    width: 30em;
+    padding-top: 10px ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    size: initial;
+    margin: 20px auto;
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 5px;
+    background-image: linear-gradient(180deg,rgb(18, 90, 185) , rgb(0, 0, 0));
+
+@media screen and (max-width:950px) {
+    .base-container {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .base-container {
+        width: 30%;
+        height: 30%;
+    }
+}
+  
+    .header {
+     margin: 20px;
+     color: white;
+      font-size: 28px;
+      justify-content: space-around;
+      font-family: "Open Sans", sans-serif;
+    }
+  
+    .content {
+      display: flex;
+      margin-top: 100px;
+      flex-direction: column;
+  
+      .image {
+        width: 21em;
+        align-items: center;
+       
+  
+        img {
+          width: 60%;
+          height: 60%;
+        }
+      }
+  
+      .form {
+        margin-top: 1em;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: fit-content;
+          label {
+            font-size: 20px;
+            color: white;
+          }
+          input {
+            margin-top: 6px;
+            width: 18em;
+            height: 37px;
+            padding: 0px 10px;
+            font-size: 16px;
+            font-family: "Open Sans", sans-serif;
+            background-color: #f3f3f3;
+            border: 0;
+            border-radius: 4px;
+            margin-bottom: 31px;
+            transition: all 250ms ease-in-out;
+
+          
+
+            &:hover {
+              background-color: #ffffff;
+              box-shadow: 0px 0px 14px 0.3px #f7f7f796;
+            }
+
+          /*  &:focus {
+              outline: red;
+              box-shadow: 0px 0px 12px 0.8px #000205b2;
+            } */
+          }
+        }
+      }
+    }
+
+    .admin{
+      margin-left: 250px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      font-style: oblique;
+      color: rgb(255, 255, 255);
+    }
+
+    .admin:hover{
+      color: rgb(49, 125, 240);
+    }
+
+    .manager {
+      margin-right: 250px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      font-style: oblique;
+      color: white;
+      margin-top:-40px;
+    }
+
+    .manager:hover {
+      color: rgb(58, 115, 223);
+    }
+
+    .cook {
+      margin-right: 270px;
+      text-decoration: none;
+      font-style: oblique;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .cook:hover{
+      color: rgb(57, 139, 233);
+    }
+
+    .link{
+      font-size: 25px;
+      margin-left: 5px;
+      font-style: italic;
+      text-decoration: none;
+      color: rgb(255, 254, 254);
+    }
+
+    .link:hover {
+      color: rgb(51, 154, 238);
+    }
+
+    .btns {
+      font-size: 21px;
+      padding: 5px 20px;
+      border: 0;
+      background-color: #fffefe;
+      color: rgb(0, 0, 0);
+      border-radius: 3px;
+      transition: all 250ms ease-in-out;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(62, 131, 221);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .next {
+      margin-bottom: 20px;
+      color:white;
+    }
+  
+    .footer {
+      margin-top: 1em;
+      color: white;
+      margin-bottom: 40px;
+    }
+  }
+
+  .radio{
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+    display: flex;
+    font-size: 20px;
+
+  }
+
+  .radio1{
+    width: 20px;
+    height: 20px;
+  }

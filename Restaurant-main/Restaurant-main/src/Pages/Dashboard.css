@@ -1,0 +1,48 @@
+body {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  text-align: center;
+  background-color: #483d8b;
+  background-position-x: center;
+  padding: 30px;
+  color: white;
+  background-image: linear-gradient(180deg, black, rgb(88, 88, 92));
+}
+
+.flex1 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.flex1 > .flex2 {
+  background-color: #f1f1f1;
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
+
+.flex3 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+}
+
+.flex3 > .flex4 {
+  background-color: #f1f1f1;
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+}

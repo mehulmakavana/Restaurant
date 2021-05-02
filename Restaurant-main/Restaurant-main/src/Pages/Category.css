@@ -1,0 +1,457 @@
+.manager-additem{
+  background: grey;
+}
+
+.popupItem_inner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  max-height: 100vh;
+  background: rgb(0, 0, 0);
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.closeItem-set{
+  display:flex;
+  justify-content: flex-end;
+  margin-top: -20px;
+}
+
+.closeItem-btn:hover {
+  cursor: pointer;
+     background:darkgray;
+     color: black;
+}
+
+.closeItem-btn {
+  height: 30px;
+  width: 70px;
+  font: bold;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 7px;
+}
+
+.popup-item {
+  position: fixed;
+width: 100%;
+height: 100%;
+background-color:rgba(109, 101, 101, 0.4);
+top: 0;
+left: 0;
+}
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(53, 52, 52);
+  align-items: center;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.category-manager{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.category-name{
+    color: white;
+}
+
+
+
+
+#students {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#students td, #students th {
+  border: 1px solid ;
+  padding: 10px;
+  color: white;
+}
+
+#students tr:hover {background-color: rgb(75, 73, 73);}
+
+
+.file {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #65c768;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.title {
+  margin-top: 50px;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.text1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text2 {
+  height: 30px;
+  width: 200px;
+}
+
+.button1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.btn1 {
+  height: 40px;
+  width: 90px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.container1 {
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(53, 52, 52);
+  align-items: center;
+  margin: auto;
+}
+
+.manager-menu {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#table{
+width: 105%;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  
+}
+
+.card {
+  height: 100vh;
+  display: flex;
+}
+
+
+.image {
+  margin-top: -100px;
+  justify-content: center;
+}
+
+.img {
+  height: 100px;
+  width: 100px;
+}
+
+.button2 {
+  margin-left: 100px;
+  margin-top: -40px;
+}
+
+.btn2 {
+  height: 30px;
+  width: 50px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button3 {
+  margin-left: 100px;
+  display: flex;
+  margin-top: -30px;
+}
+
+.btn3 {
+  height: 30px;
+  width: 80px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 300px) {
+  .container {
+    width: 30%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+  }
+  .container1 {
+    width: 30%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.container{
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(53, 52, 52);
+  align-items: center;
+  margin: auto;
+  margin-bottom: 50px; 
+}
+
+.Item-file{
+  margin-bottom: 10px;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex; 
+}
+
+.Item-title{
+  margin-bottom: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-left: 50px;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+}
+
+
+
+
+h4 {
+  font-size: 25px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.file {
+  color: #65c768;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.Itemtitle {
+  color: rgb(255, 251, 251);
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.text1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text2 {
+  height: 30px;
+  width: 200px;
+}
+
+.price {
+  color: rgb(255, 240, 240);
+}
+
+.offer1 {
+  color: rgb(255, 255, 255);
+}
+
+.offer2 {
+  color: rgb(255, 255, 255);
+}
+
+.description {
+  color: rgb(255, 255, 255);
+}
+
+.price1 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.price2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price3 {
+  height: 30px;
+  width: 200px;
+}
+
+.dsc {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.dsc1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dsc2 {
+  height: 50px;
+  width: 300px;
+}
+
+.button4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn4 {
+  height: 40px;
+  width: 90px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+}
+
+.btn4:hover {
+background-color: black;
+color: white;  
+cursor: pointer;
+}
+
+#table1 {
+  width: 100%;
+}
+
+#table1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+#students1 {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid rgb(0, 0, 0);
+  width: 50%;
+}
+
+#students1 th {
+  border: 1px solid;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+}
+
+#students1 tr:hover {
+  background-color: rgb(75, 73, 73);
+}
+
+.card1 {
+  height: 100vh;
+}
+
+.name {
+  color: rgb(255, 254, 254);
+  font-size: 20px;
+  margin-left: 20px;
+  display: flex;
+}
+
+.image {
+  display: flex;
+  margin-left: 40px;
+}
+
+.img {
+  height: 100px;
+  width: 100px;
+}
+
+.button5 {
+  margin-left: 700px;
+  display: flex;
+  margin-top: -40px;
+}
+
+.btn5 {
+  height: 30px;
+  width: 50px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button6 {
+  margin-left: 10px;
+  display: flex;
+  margin-top: -30px;
+}
+
+.btn6 {
+  height: 30px;
+  width: 80px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  cursor: pointer;
+}
