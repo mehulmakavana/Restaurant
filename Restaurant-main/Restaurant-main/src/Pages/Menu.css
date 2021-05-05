@@ -1,4 +1,4 @@
-.container2 {
+/* .container2 {
   flex-direction: column;
   justify-content: center;
   height: 50%;
@@ -274,5 +274,7 @@ background-color: rgba(209, 236, 236, 0.1);
   top: 25%;
   bottom: 25%;
   margin: auto;
-  background: white;
-}
+  height: 100%;
+  width: auto;
+  background: rgb(247, 27, 27);
+} */

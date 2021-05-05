@@ -1,12 +1,17 @@
 import React, { Component } from "react";
+import './Staff.css';
 
 class Popup extends React.Component {
+
   constructor(props) {
+
     super(props);
     this.state = {
+
       name: "",
       email: "",
       phone: "",
+
     };
   }
 
@@ -52,11 +57,12 @@ class Popup extends React.Component {
   render() {
     return (
       <div className="popup">
-        <div className="popup_inner">
-          <h1>{this.props.text}</h1>
-          <div className="container2">
-            
 
+        <div className="popup_inner">
+
+          <label className="label">Edit Details</label>
+
+            <div className="dtl">
             <div className="title">Name</div>
             <div className="text1">
               <input
@@ -67,10 +73,10 @@ class Popup extends React.Component {
               />
             </div>
 
-            <div className="price1">Email</div>
-            <div className="price2">
+            <div className="email">Email</div>
+            <div className="email1">
               <input
-                className="price3"
+                className="email2"
                 type="text"
                 name="email"
                
@@ -78,26 +84,28 @@ class Popup extends React.Component {
               />
             </div>
 
-            <div className="dsc">phone</div>
-            <div className="dsc1">
+            <div className="phone">Phone</div>
+            <div className="phone1">
               <input
-                className="dsc2"
+                className="phone2"
                 type="text"
                 name="phone"
                 onChange={(e) => this.handlePhone(e)}
               />
             </div>
 
-            <div className="button4">
-              <button className="btn4" onClick={(e) => this.update(e)}>
+            <div className="popbtn">
+              <button className="popbtn1" onClick={(e) => this.update(e)}>
                 Update
               </button>
             </div>
 
-            <button onClick={this.props.closePopup}>close</button>
+        <div className="popbtn2">
+            <button className="popbtn3" onClick={this.props.closePopup}>X</button>
+            </div>
+          </div>
           </div>
         </div>
-      </div>
     );
   }
 }
@@ -161,7 +169,7 @@ class viewManager extends Component {
     }
     return (
       <div>
-        <div className="head-manager">All manager</div>
+        <h1>All Manager</h1>
         <div className="manager-data">
           {this.state.people.map((manager) => (
             <div key={manager._id}>
@@ -198,9 +206,7 @@ class viewManager extends Component {
                   </button>
                 </div>
               </div>
-              <div>
-              
-              </div>
+            
             </div>
           ))}
         </div>

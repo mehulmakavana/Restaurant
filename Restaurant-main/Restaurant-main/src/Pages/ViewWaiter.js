@@ -158,7 +158,7 @@ export class ViewWaiter extends Component {
     }
     return (
       <div>
-        <div className="head-waiter">All waiter</div>
+        <h1>All waiter</h1>
         <div className="waiter-data">
           {this.state.people.map((waiter) => (
             <div key={waiter._id}>
@@ -198,7 +198,6 @@ export class ViewWaiter extends Component {
                 </div>
               </div>
               <div>
-                __________________________________________________________________________________________________________________________
               </div>
             </div>
           ))}

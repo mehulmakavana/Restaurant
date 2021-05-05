@@ -23,6 +23,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-burger-menu": "^2.7.1",
+    "react-custom-scrollbars": "^4.2.1",
     "react-date": "^2.0.0",
     "react-date-picker": "^8.1.1",
     "react-datepicker": "^3.8.0",
@@ -45,7 +46,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

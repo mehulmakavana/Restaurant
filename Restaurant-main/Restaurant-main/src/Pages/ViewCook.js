@@ -157,7 +157,7 @@ export class viewCook extends Component {
     }
     return (
       <div>
-        <div className="head-cook">All Cook</div>
+        <h1>All Cook</h1>
         <div className="cook-data">
           {this.state.people.map((cook) => (
             <div key={cook._id}>
