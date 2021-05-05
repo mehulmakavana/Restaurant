@@ -37,7 +37,7 @@ function Register() {
         <div className="content">
 
           <div className="image">
-*
+
             <img src={loginImg} alt={1} />
           </div>
 

@@ -35,8 +35,26 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Staff',
-    path: '/TotalStaff',
+    title: 'View Manager',
+    path: '/ViewManager',
+    icon: <IoIcons.IoMdPeople />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'View Cook',
+    path: '/ViewCook',
+    icon: <IoIcons.IoMdPeople />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'View Waiter',
+    path: '/ViewWaiter',
+    icon: <IoIcons.IoMdPeople />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'View User',
+    path: '/ViewUser',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
   },

@@ -16,38 +16,8 @@ class Popup extends React.Component {
       offer: "",
 
     }
-    //this.update = this.update.bind(this);
 
   }
-
-/*update() {
-  let file = this.state.file
-  let name = this.state.name
-  let offer = this.state.offer
-  let description = this.state.description
-  let formdata = new FormData()
-
-  formdata.append('imageUrl', file)
-
-  fetch("http://localhost:8020/menu/update/" + this.props._id, {
-    "method": "PUT",
-    "headers": {
-      "content-type": "application/json",
-      "accept": "application/json"
-    },
-    "body": JSON.stringify({
-      imageUrl: formdata,
-      name: name,
-      offer: offer,
-      description: description,
-    })
-  })
-    .then(response => response.json())
-    .then(response => {
-      console.log(response);
-    })
-    .catch(err => { console.log(err); });
-}*/
 
 update(e) {
   e.preventDefault();

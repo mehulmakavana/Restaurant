@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import './Category.css';
-
-
-export class Category extends Component {
+export class AddCategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +22,6 @@ export class Category extends Component {
 
 
     async componentDidMount() {
-    
 
         const url = "http://localhost:8020/categorypost/categories";
         const response = await fetch(url);
@@ -52,6 +49,7 @@ export class Category extends Component {
         formdata.append('categoryName', categoryName)
 
         axios({
+            /*  url: `http://192.168.0.61:8020/categorypost/create`, */
             url: `http://localhost:8020/categorypost/create`,
             method: "POST",
             headers: {
@@ -68,6 +66,7 @@ export class Category extends Component {
     }
 
     delete(id) {
+        /* fetch('http://192.168.0.61:8020/categorypost/delete/' + id,*/
         fetch('http://localhost:8020/categorypost/delete/' + id,
             {
                 method: 'DELETE',
@@ -162,9 +161,9 @@ export class Category extends Component {
                             <table id="table" >
 
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Image</th>
-                                    <th>Action</th>
+                                    <th width="130px" height="50px">Title</th>
+                                    <th width="170px" height="50px">Image</th>
+                                    <th width="550px" height="50px">Action</th>
                                 </tr>
 
                             </table>
@@ -187,7 +186,7 @@ export class Category extends Component {
     }
 }
 
-export default Category;
+export default AddCategory;
 
 
 class Popup extends React.Component {
@@ -197,12 +196,16 @@ class Popup extends React.Component {
             file: null,
             name: null,
             people: [],
+            showSecondPopup: false,
             loading: true,
             imageUrl: "",
             originalPrice: "",
             description: "",
             offer: "",
+            activeId1:null,
         };
+        this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+
     }
 
     async componentDidMount() {
@@ -269,6 +272,14 @@ class Popup extends React.Component {
         );
     }
 
+    toggleSecondPopup(data) {
+        this.setState({
+            showSecondPopup: !this.state.showSecondPopup,
+            activeId1: data._id
+
+        });
+    }
+
     delete(_id) {
         fetch("http://localhost:8020/menu/delete/" + _id, {
             method: "DELETE",
@@ -293,31 +304,31 @@ class Popup extends React.Component {
             } = data;
             return (
                 <tr key={_id}>
-                    <td>
+                    <td width="150px">
                         <div className="name">{name}</div>
                     </td>
 
-                    <td>
+                    <td width="150px">
                         <img className="img" src={imageUrl} />
                     </td>
 
-                    <td>
+                    <td width="100px">
                         <div className="price"> {originalPrice} ₹ </div>
                     </td>
 
-                    <td>
+                    <td width="100px">
                         <div className="offer1"> {offer} % </div>
                     </td>
 
-                    <td>
+                    <td width="100px">
                         <div className="offer2"> {offerPrice} ₹ </div>
                     </td>
 
-                    <td>
+                    <td width="200px">
                         <div className="description">{description}</div>
                     </td>
 
-                    <td>
+                    <td width="300px">
                         <div className="button6">
                             <button
                                 className="btn6"
@@ -327,18 +338,18 @@ class Popup extends React.Component {
                                 Delete
               </button>
                         </div>
-                    </td>
+                    </td >
 
-                    <td>
+                    <td width="300px">
                         <div className="button6">
-                            <button className="btn6">Edit</button>
+                            <button className="btn6" onClick={() => this.toggleSecondPopup(data)}>Edit</button>
                         </div>
                     </td>
 
-                    {this.state.showPopup ? (
-                        <Popup
-                            _id={this.state.id}
-                            closePopup={() => this.togglePopup(data)}
+                    {this.state.showSecondPopup ? (
+                        <SecondPopup
+                            id1={this.state.activeId1}
+                            closeSecondPopup={() => this.toggleSecondPopup(data)}
                         />
                     ) : null}
                 </tr>
@@ -442,6 +453,164 @@ class Popup extends React.Component {
                         </div>
 
 
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+
+
+class SecondPopup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            file: null,
+            name: null,
+            showSecondPopup: false,
+            loading: true,
+            imageUrl: "",
+            originalPrice: "",
+            description: "",
+            offer: "",
+            activeId1:null,
+        };
+        this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+
+    }
+
+    EditItemName(e) {
+        let name = e.target.value;
+        this.setState({ name: name });
+    }
+
+    EditItemFile(e) {
+        let file = e.target.files[0];
+        this.setState({ file: file });
+    }
+
+    EditItemPrice(e) {
+        let originalPrice = e.target.value;
+        this.setState({ originalPrice: originalPrice });
+    }
+
+    EditItemOffer(e) {
+        let offer = e.target.value;
+        this.setState({ offer: offer });
+    }
+
+    EditItemDescription(e) {
+        let description = e.target.value;
+        this.setState({ description: description });
+    }
+
+    async handleItemEdit(e) {
+        e.preventDefault();
+
+        let file = this.state.file;
+        let name = this.state.name;
+        let offer = this.state.offer;
+        let description = this.state.description;
+
+        let formdata = new FormData();
+
+        formdata.append("imageUrl", file);
+        formdata.append("name", name);
+        formdata.append("offer", offer);
+        formdata.append("description", description);
+
+        axios({
+            url: `http://localhost:8020/menu/update/` + this.props.id1,
+            method: "PUT",
+            headers: {
+                authorization: `your token`,
+            },
+            data: formdata,
+        }).then(
+            (res) => {this.setState({showSecondPopup: !this.state.showSecondPopup})
+            },
+            (err) => { }
+        );
+    }
+
+    toggleSecondPopup(data) {
+        this.setState({
+            showSecondPopup: !this.state.showSecondPopup,
+            activeId1: data._id
+        });
+    }
+
+
+    render() {
+        return (
+            <div className='Secondpopup-item'>
+                <div className='SecondpopupItem_inner'>
+                    <div className="secondcloseItem-set">
+                        <button className="secondcloseItem-btn" onClick={this.props.closeSecondPopup}>X</button>
+                    </div>
+
+                    <div>
+                        
+                            <div className="container">
+                                    <h4>Edit Menu</h4>
+
+                                    <div className="file">
+                                        <input
+                                            type="file"
+                                            name="file"
+                                            onChange={(e) => this.EditItemFile(e)}
+                                        />
+                                    </div>
+
+                                    <div className="Itemtitle">Sub-Title</div>
+                                    <div className="text1">
+                                        <input
+                                            className="text2"
+                                            type="text"
+                                            name="name"
+                                            onChange={(e) => this.EditItemName(e)}
+                                        />
+                                    </div>
+
+                                    <div className="price1">Price (RS)</div>
+                                    <div className="price2">
+                                        <input
+                                            className="price3"
+                                            type="number"
+                                            name="originalPrice"
+                                            min="1"
+                                            onChange={(e) => this.EditItemPrice(e)}
+                                        />
+                                    </div>
+
+                                    <div className="price1">Offer</div>
+                                    <div className="price2">
+                                        <input
+                                            className="price3"
+                                            type="number"
+                                            name="offer"
+                                            min="1"
+                                            onChange={(e) => this.EditItemOffer(e)}
+                                        />
+                                    </div>
+
+                                    <div className="dsc">Description</div>
+                                    <div className="dsc1">
+                                        <textarea
+                                            className="dsc2"
+                                            type="text"
+                                            name="description"
+                                            onChange={(e) => this.EditItemDescription(e)}
+                                        />
+                                    </div>
+
+                                    <div className="button4">
+                                        <button className="btn4" onClick={(e) => this.handleItemEdit(e)}>
+                                            Submit
+                                        </button>
+                                    </div>
+                            </div>
                     </div>
                 </div>
             </div>
