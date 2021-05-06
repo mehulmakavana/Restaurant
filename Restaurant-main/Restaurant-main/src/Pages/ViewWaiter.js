@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Waiter.scss";
 
 class Popup extends React.Component {
   constructor(props) {
@@ -52,9 +53,12 @@ class Popup extends React.Component {
   render() {
     return (
       <div className="popup">
+
         <div className="popup_inner">
-          <h1>{this.props.text}</h1>
-          <div className="container2">
+
+          <label className="label">Edit Details</label>
+
+            <div className="dtl">
             <div className="title">Name</div>
             <div className="text1">
               <input
@@ -65,40 +69,42 @@ class Popup extends React.Component {
               />
             </div>
 
-            <div className="price1">Email</div>
-            <div className="price2">
+            <div className="email">Email</div>
+            <div className="email1">
               <input
-                className="price3"
+                className="email2"
                 type="text"
                 name="email"
+               
                 onChange={(e) => this.handleEmail(e)}
               />
             </div>
 
-            <div className="dsc">phone</div>
-            <div className="dsc1">
+            <div className="phone">Phone</div>
+            <div className="phone1">
               <input
-                className="dsc2"
+                className="phone2"
                 type="text"
                 name="phone"
                 onChange={(e) => this.handlePhone(e)}
               />
             </div>
 
-            <div className="button4">
-              <button className="btn4" onClick={(e) => this.update(e)}>
+            <div className="popbtn">
+              <button className="popbtn1" onClick={(e) => this.update(e)}>
                 Update
               </button>
             </div>
 
-            <button onClick={this.props.closePopup}>close</button>
+        <div className="popbtn2">
+            <button className="pop" onClick={this.props.closePopup}>X</button>
+            </div>
+          </div>
           </div>
         </div>
-      </div>
     );
   }
 }
-
 export class ViewWaiter extends Component {
   constructor(props) {
     super(props);
@@ -156,51 +162,56 @@ export class ViewWaiter extends Component {
         </div>
       );
     }
+
     return (
       <div>
         <h1>All waiter</h1>
-        <div className="waiter-data">
+
+        <div>
+          <table className="wt1">
+         
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+           
+            </table>
+
           {this.state.people.map((waiter) => (
             <div key={waiter._id}>
               <div>
-                <div className="Single-waiter">
-                  <div className="waiter-info">UserId :- {waiter._id}</div>
-                  <div className="waiter-info">Name :- {waiter.name}</div>
-                  <div className="waiter-info">Email :- {waiter.email}</div>
-                  <div className="waiter-info">PhoneNo :- {waiter.phone}</div>
-                  <div className="waiter-info">
-                    Created At :- {waiter.created_At}
-                  </div>
-                </div>
                 <div>
-                  <div>
-                    <button className="btn6" onClick={() => this.togglePopup(waiter)}>
-                      Edit item
-                    </button>
-                  </div>
+                <table className="wt">
+                    <tr>
+                      <td> {waiter.name}</td>
+                      <td> {waiter.email}</td>
+                      <td>{waiter.phone}</td>
+                      <td>
+                        <button onClick={() => this.togglePopup(waiter)}>
+                          Edit item
+                        </button>
 
-                  {this.state.showPopup ? (
-                    <Popup
-                      _id={this.state.id}
-                      closePopup={() => this.togglePopup(waiter)}
-                    />
-                  ) : null}
-
-                  <div>
-                    <button
-                      className="btn6"
-                      onClick={() => this.delete(waiter._id)}
-                      variant="danger"
-                    >
-                      Delete
-                    </button>
-                  </div>
+                        <button
+                          onClick={() => this.delete(waiter._id)}
+                          variant="danger"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    </table>
                 </div>
-              </div>
-              <div>
+
+                {this.state.showPopup ? (
+                  <Popup
+                    _id={this.state.id}
+                    closePopup={() => this.togglePopup(waiter)}
+                  />
+                ) : null}
               </div>
             </div>
           ))}
+        
         </div>
       </div>
     );

@@ -115,8 +115,6 @@
     margin: auto;
   }
   
-
-  
   @media screen and (max-width: 300px) {
     .container2 {
       width: 30%;

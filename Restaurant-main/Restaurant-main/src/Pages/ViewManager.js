@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Staff.css';
+import "./Waiter.scss";
 
 class Popup extends React.Component {
 
@@ -101,7 +101,7 @@ class Popup extends React.Component {
             </div>
 
         <div className="popbtn2">
-            <button className="popbtn3" onClick={this.props.closePopup}>X</button>
+            <button className="pop" onClick={this.props.closePopup}>X</button>
             </div>
           </div>
           </div>
@@ -170,49 +170,54 @@ class viewManager extends Component {
     return (
       <div>
         <h1>All Manager</h1>
-        <div className="manager-data">
+        <div>
+        <table className="wt1">
+         
+         <th>Name</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th>Action</th>
+      
+       </table>
           {this.state.people.map((manager) => (
             <div key={manager._id}>
               <div>
-                <div className="Single-manager">
-                  <div className="manager-info">UserId :- {manager._id}</div>
-                  <div className="manager-info">Name :- {manager.name}</div>
-                  <div className="manager-info">Email :- {manager.email}</div>
-                  <div className="manager-info">PhoneNo :- {manager.phone}</div>
-                  <div className="manager-info">
-                    Created At :- {manager.created_At}
-                  </div>
-                </div>
                 <div>
-                  <div>
-                    <button className="btn6" onClick={() => this.togglePopup(manager)}>
-                      Edit item
-                    </button>
-                  </div>
+                <table className="wt">
+                    <tr>
+                      <td> {manager.name}</td>
+                      <td> {manager.email}</td>
+                      <td>{manager.phone}</td>
+                      <td>
+                        <button onClick={() => this.togglePopup(manager)}>
+                          Edit item
+                        </button>
 
-                  {this.state.showPopup ? (
-                    <Popup
-                      _id={this.state.id}
-                      closePopup={() => this.togglePopup(manager)}
-                    />
-                  ) : null}
-
-                  <button
-                    className="btn6"
-                    onClick={() => this.delete(manager._id)}
-                    variant="danger"
-                  >
-                    Delete
-                  </button>
+                        <button
+                          onClick={() => this.delete(manager._id)}
+                          variant="danger"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    </table>
+                
                 </div>
+
+                {this.state.showPopup ? (
+                  <Popup
+                    _id={this.state.id}
+                    closePopup={() => this.togglePopup(manager)}
+                  />
+                ) : null}
               </div>
-            
             </div>
           ))}
+        
         </div>
       </div>
     );
   }
 }
-
 export default viewManager;

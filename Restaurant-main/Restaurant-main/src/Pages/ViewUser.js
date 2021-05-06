@@ -51,36 +51,43 @@ export class viewUser extends Component {
     return (
       <div>
         <h1>All user</h1>
-        <div className="user-data">
+        <div>
+        <table className="wt1">
+         
+         <th>Name</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th>Action</th>
+      
+       </table>
           {this.state.people.map((user) => (
             <div key={user._id}>
               <div>
-                <div className="Single-user">
-                  <div className="user-info">UserId :- {user._id}</div>
-                  <div className="user-info">Name :- {user.name}</div>
-                  <div className="user-info">Email :- {user.email}</div>
-                  <div className="user-info">PhoneNo :- {user.phone}</div>
-                  <div className="user-info">
-                    Created At :- {user.created_At}
-                  </div>
+                <div>
+                <table className="wt">
+                    <tr>
+                      <td> {user.name}</td>
+                      <td> {user.email}</td>
+                      <td>{user.phone}</td>
+                      <td>
+            
+                        <button
+                          onClick={() => this.delete(user._id)}
+                          variant="danger"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                    </table>
+                
                 </div>
 
-              
-                  <div>
-                    <button
-                      className="btn6"
-                      onClick={() => this.delete(user._id)}
-                      variant="danger"
-                    >
-                      Delete
-                    </button>
-                  </div>
-               
-              </div>
-
             
+              </div>
             </div>
           ))}
+        
         </div>
       </div>
     );
