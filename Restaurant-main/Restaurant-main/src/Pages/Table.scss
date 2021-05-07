@@ -1,0 +1,166 @@
+.label {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+  }
+  
+  .tnu {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .tnu1 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tnu2 {
+    height: 30px;
+    width: 200px;
+  }
+  
+  .ts {
+    margin-top: 50px;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .ts1 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ts2 {
+    height: 30px;
+    width: 200px;
+  }
+  
+
+  
+  .tub {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tub1 {
+    height: 30px;
+    width: 70px;
+    cursor: pointer;
+  }
+  
+  .tcb {
+    display: flex;
+    float: right;
+    margin-top: -341px;
+  }
+  
+  .tcb1 {
+    height: 25px;
+    width: 30px;
+  }
+  
+  .popup {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+  }
+  .tp {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    height: 70%;
+    background-image: linear-gradient(
+      180deg,
+      #ffe1aa 0,
+      #ffd4a7 16.67%,
+      #ffc7a2 33.33%,
+      #f2b99d 50%,
+      #e1ac97 66.67%,
+      #d1a092 83.33%,
+      #c2968d 100%
+    );
+  }
+
+.tn{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+}
+
+  .tb1 {
+    width: 100%;
+  }
+  
+  .tb1 td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .tb1 tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .tb {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tb td {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(120, 187, 187);
+    font-size: 25px;
+
+  }
+
+
+  .teb {
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 1px 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .teb1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+  }
+  
+  .teb1:hover {
+    background-color: #555555;
+    color: white;
+  }
+  

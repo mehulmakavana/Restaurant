@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Table.scss";
 
 class Popup extends React.Component {
   constructor(props) {
@@ -9,8 +10,6 @@ class Popup extends React.Component {
       size: "",
     };
   }
-
-
 
   update(e) {
     let table = this.state.table;
@@ -29,8 +28,7 @@ class Popup extends React.Component {
       },
       data: formdata,
     }).then(
-      (res) => {
-      },
+      (res) => {},
       (err) => {}
     );
   }
@@ -48,38 +46,39 @@ class Popup extends React.Component {
   render() {
     return (
       <div className="popup">
-        <div className="popup_inner">
-          <h1>{this.props.text}</h1>
-          <div className="container2">
-            <div className="price1">Table No </div>
-            <div className="price2">
-              <input
-                className="price3"
-                type="number"
-                name="table"
-                min="1"
-                onChange={(e) => this.handleTable1(e)}
-              />
-            </div>
+        <div className="tp">
+          <label className="label">Edit Details</label>
 
-            <div className="price1">Size</div>
-            <div className="price2">
-              <input
-                className="price3"
-                type="number"
-                name="size"
-                min="1"
-                onChange={(e) => this.handleSize1(e)}
-              />
-            </div>
+          <div className="tnu">Table-Number</div>
+          <div className="tnu1">
+            <input
+              className="tnu2"
+              type="number"
+              name="table"
+              onChange={(e) => this.handleTable1(e)}
+            />
+          </div>
 
-            <div className="button4">
-              <button className="btn4" onClick={(e) => this.update(e)}>
-                Update
-              </button>
-            </div>
+          <div className="ts">Table-Size</div>
+          <div className="ts1">
+            <input
+              className="ts2"
+              type="number"
+              name="size"
+              onChange={(e) => this.handleSize1(e)}
+            />
+          </div>
 
-            <button onClick={this.props.closePopup}>close</button>
+          <div className="tub">
+            <button className="tub1" onClick={(e) => this.update(e)}>
+              Update
+            </button>
+          </div>
+
+          <div className="tcb">
+            <button className="tcb1" onClick={this.props.closePopup}>
+              X
+            </button>
           </div>
         </div>
       </div>
@@ -160,102 +159,90 @@ export class CreateTable extends Component {
     });
   }
 
-  renderTableData() {
-    return this.state.people.map((data) => {
-      return (
-        <tr key={data._id}>
-          <td>
-            <div className="category-name">{data.table}</div>
-          </td>
-
-          <td>
-            <div className="category-name">{data.size}</div>
-          </td>
-
-          <td>
-            <div className="category-name">{data.Status}</div>
-          </td>
-
-          <td>
-            <div className="button3">
-              <button className="btn3" onClick={() => this.delete(data._id)}>
-                {" "}
-                Delete{" "}
-              </button>
-            </div>
-          </td>
-
-          <td>
-            <div className="button6">
-              <button onClick={() => this.togglePopup(data)}>Edit Table</button>
-            </div>
-          </td>
-
-          {this.state.showPopup ? (
-            <Popup
-              _id={this.state.id}
-              closePopup={() => this.togglePopup(data)}
-            />
-          ) : null}
-        </tr>
-      );
-    });
-  }
-
   render() {
     return (
       <div>
-        <div className="manager-additem">
-          <div className="add-category">
-            <div className="container">
-              <h4>Add Table</h4>
+        <div>
+          <h1>Add Table</h1>
 
-              <div className="title">Table</div>
-              <div className="text1">
-                <input
-                  type="number"
-                  className="text2"
-                  name="table"
-                  onChange={(e) => this.handleTable(e)}
-                />
+          <div className="title">Table-Number</div>
+          <div className="text1">
+            <input
+              type="number"
+              className="text2"
+              name="table"
+              onChange={(e) => this.handleTable(e)}
+            />
+          </div>
+
+          <div className="title">Table-Size</div>
+          <div className="text1">
+            <input
+              type="number"
+              className="text2"
+              name="size"
+              onChange={(e) => this.handleSize(e)}
+            />
+          </div>
+
+          <div className="button1">
+            <button className="btn1" onClick={(e) => this.handleUpload(e)}>
+              Upload
+            </button>
+          </div>
+        </div>
+
+
+
+
+
+        <div>
+          <label className="tn">Tables-Details</label>
+          <div>
+            <table className="tb">
+              <td>Table-Number</td>
+              <td>Table-Size</td>
+              <td>Table-Status</td>
+              <td>Action</td>
+            </table>
+            {this.state.people.map((table) => (
+              <div key={table._id}>
+                <div>
+                  <div>
+                    <table className="tb1">
+                      <tr>
+                        <td> {table.table}</td>
+                        <td> {table.size}</td>
+                        <td>{table.Status}</td>
+                        <td>
+                          <button
+                            className="teb teb1"
+                            onClick={() => this.togglePopup(table)}
+                          >
+                            Edit item
+                          </button>
+
+                          <button
+                            className="teb teb1"
+                            onClick={() => this.delete(table._id)}
+                            variant="danger"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  {this.state.showPopup ? (
+                    <Popup
+                      _id={this.state.id}
+                      closePopup={() => this.togglePopup(table)}
+                    />
+                  ) : null}
+                </div>
               </div>
-
-              <div className="title">Size</div>
-              <div className="text1">
-                <input
-                  type="number"
-                  className="text2"
-                  name="size"
-                  onChange={(e) => this.handleSize(e)}
-                />
-              </div>
-
-              <div className="button1">
-                <button className="btn1" onClick={(e) => this.handleUpload(e)}>
-                  Upload
-                </button>
-              </div>
-            </div>
-
-            <div className="container1">
-              <div className="category-manager">Tables</div>
-
-              <div className="content">
-                <table id="table">
-                  <tr>
-                    <th>Table</th>
-                    <th>Size</th>
-                    <th>Status</th>
-                  </tr>
-                </table>
-              </div>
-
-              <div>
-                <table id="students">
-                  <tbody>{this.renderTableData()}</tbody>
-                </table>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

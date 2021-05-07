@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Navbar from './Components/Navbar';
+import Sidebar from './Components/Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import Category from './Pages/Category';
-import Order from './Pages/Order';
+import OrdersHistory from './Pages/OrdersHistory';
 import ViewCook from './Pages/ViewCook';
 import ViewUser from './Pages/ViewUser';
 import ViewWaiter from './Pages/ViewWaiter';
@@ -22,16 +22,16 @@ function App() {
   return (
 
     <Router>
-      <Navbar />
+      <Sidebar />
 
       <Switch>
         <Route path='/' exact component={Dashboard} />
         <Route path='/Category' component={Category} />
         <Route path='/CreateTable' component={CreateTable} />
-        <Route path='/Order' component={Order} />
-        <Route path='/ViewCook' component={ViewCook} />
-        <Route path='/ViewUser' component={ViewUser} />
-        <Route path='/ViewWaiter' component={ViewWaiter} />
+        <Route path='/OrdersHistory' component={OrdersHistory} />
+        <Route path='/ViewManager/ViewCook' component={ViewCook} />
+        <Route path='/ViewManager/ViewUser' component={ViewUser} />
+        <Route path='/ViewManager/ViewWaiter' component={ViewWaiter} />
         <Route path='/ViewManager' component={ViewManager} />
         <Route path='/Ratings' component={Ratings} />
         <Route path='/Menu/:_id' component={Menu} />

@@ -1,0 +1,31 @@
+.rt {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+.rt td {
+  padding: 25px;
+  text-align: center;
+  font-size: 25px;
+
+  background-color: rgb(221, 223, 226);
+}
+
+.rt1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+.rt1 td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.rt1 tr:hover {
+  background-color: #f5f5f5;
+}
+
+

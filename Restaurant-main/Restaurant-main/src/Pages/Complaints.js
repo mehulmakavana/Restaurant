@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Complaints.css'
+import './Complaints.scss'
 
 export class Complaints extends Component {
 
@@ -23,63 +23,45 @@ export class Complaints extends Component {
 
   }
 
-  renderTableData() {
-    return this.state.people.map((data) => {
-      const { _id, orderId, title, message } = data
-      return (
-
-        <tr key={_id}>
-
-          <td><div className="name">{orderId}</div></td>
-
-          <td><div className="price">{title}
-          </div></td>
-
-          <td><div className="description">{message}
-          </div></td>
-
-        </tr>
-      )
-    })
-  }
 
   render() {
 
     return (
 
       <div>
+      <h1>Complaints</h1>
+      <div>
+      <table className="ct">
+       
+       <td>Title</td>
+       <td>Message</td>
+  
+    
+     </table>
+        {this.state.people.map((complaints) => (
+          <div key={complaints._id}>
+            <div>
+              <div>
+              <table className="ct1">
+                  <tr>
+                    <td> {complaints.title}</td>
+                    <td> {complaints.message}</td>
+                    
+                  </tr>
+                  </table>
+              
+              </div>
 
-        <h1>Complaints</h1>
-
-        <div className="flex">
-
-          <div className="content">
-
-            <table id="table2" >
-
-              <tr>
-                <th>Order-Id</th>
-                <th>Title</th>
-                <th>Message</th>
-              </tr>
-
-            </table>
-
+            
+            
+            </div>
           </div>
-
-          <div>
-
-            <table id='students1'>
-              <tbody>
-                {this.renderTableData()}
-              </tbody>
-            </table>
-          </div>
-
-        </div>
+        ))}
+      
       </div>
-    )
-  }
+    </div>
+  );
+}
 }
 
 export default Complaints

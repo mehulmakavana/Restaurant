@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Waiter.scss";
+import "./Staff.scss";
 
 class Popup extends React.Component {
 
@@ -101,7 +101,7 @@ class Popup extends React.Component {
             </div>
 
         <div className="popbtn2">
-            <button className="pop" onClick={this.props.closePopup}>X</button>
+            <button className="popbtn3" onClick={this.props.closePopup}>X</button>
             </div>
           </div>
           </div>
@@ -173,10 +173,10 @@ class viewManager extends Component {
         <div>
         <table className="wt1">
          
-         <th>Name</th>
-         <th>Email</th>
-         <th>Phone</th>
-         <th>Action</th>
+         <td>Name</td>
+         <td>Email</td>
+         <td>Phone</td>
+         <td>Action</td>
       
        </table>
           {this.state.people.map((manager) => (
@@ -189,11 +189,11 @@ class viewManager extends Component {
                       <td> {manager.email}</td>
                       <td>{manager.phone}</td>
                       <td>
-                        <button onClick={() => this.togglePopup(manager)}>
+                        <button className="sb sb1" onClick={() => this.togglePopup(manager)}>
                           Edit item
                         </button>
 
-                        <button
+                        <button className="sb sb1"
                           onClick={() => this.delete(manager._id)}
                           variant="danger"
                         >

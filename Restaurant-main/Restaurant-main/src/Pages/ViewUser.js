@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Staff.scss'
 
 export class viewUser extends Component {
   constructor(props) {
@@ -54,10 +55,10 @@ export class viewUser extends Component {
         <div>
         <table className="wt1">
          
-         <th>Name</th>
-         <th>Email</th>
-         <th>Phone</th>
-         <th>Action</th>
+         <td>Name</td>
+         <td>Email</td>
+         <td>Phone</td>
+         <td>Action</td>
       
        </table>
           {this.state.people.map((user) => (
@@ -71,7 +72,7 @@ export class viewUser extends Component {
                       <td>{user.phone}</td>
                       <td>
             
-                        <button
+                        <button className="sb sb1"
                           onClick={() => this.delete(user._id)}
                           variant="danger"
                         >

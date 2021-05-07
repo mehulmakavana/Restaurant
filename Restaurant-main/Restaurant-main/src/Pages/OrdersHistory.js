@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Rating.scss'
+import './OrderHistory.scss'
 
-export class Ratings extends Component {
+export class OrdersHistory extends Component {
 
     constructor(props) {
 
@@ -13,41 +13,41 @@ export class Ratings extends Component {
         }
     }
 
-    
+
     async componentDidMount() {
 
-        const url = "http://localhost:8020/feedback/feedbacks"
+        const url = "http://localhost:8020/order/getorders"
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({ people: data.feedbacks, loading: false });
+        this.setState({ people: data.orders, loading: false });
         this.searchArray = data
-    }
-   
+      }
+
 
     render() {
 
         return (
 
             <div>
-            <h1>Ratings</h1>
+            <h1>Orders History</h1>
             <div>
-            <table className="rt">
+            <table className="ot">
              
-             <td>Title</td>
-             <td>Ratings</td>
-             <td>Message</td>
+             <td>Name</td>
+             <td>Grand-Total</td>
+             <td>Payment-Method</td>
         
           
            </table>
-              {this.state.people.map((rating) => (
-                <div key={rating._id}>
+              {this.state.people.map((order) => (
+                <div key={order._id}>
                   <div>
                     <div>
-                    <table className="rt1">
+                    <table className="ot1">
                         <tr>
-                          <td> {rating.title}</td>
-                          <td> {rating.rating}</td>
-                          <td>{rating.message}</td>
+                          <td> {order.name}</td>
+                          <td> {order.grandTotal}</td>
+                          <td>{order.paymentMethod}</td>
                           
                         </tr>
                         </table>
@@ -66,5 +66,5 @@ export class Ratings extends Component {
       }
     }
 
-export default Ratings;
+export default OrdersHistory
 

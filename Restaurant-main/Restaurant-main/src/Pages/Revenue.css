@@ -1,0 +1,83 @@
+.sd {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.sd1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sd2 {
+  height: 30px;
+  width: 200px;
+}
+
+.ed {
+  margin-top: 50px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.ed1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ed2 {
+  height: 30px;
+  width: 200px;
+}
+
+.rn {
+  display: grid;
+  background-image: linear-gradient(
+    180deg,
+    #ffe1aa 0,
+    #ffd4a7 16.67%,
+    #ffc7a2 33.33%,
+    #f2b99d 50%,
+    #e1ac97 66.67%,
+    #d1a092 83.33%,
+    #c2968d 100%
+  );
+}
+
+.rb {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.rb {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rb1 {
+  height: 30px;
+  width: 70px;
+  cursor: pointer;
+}
