@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { NavItem } from 'reactstrap';
 import './Revenue.css'
 
 class Revenue extends Component {
@@ -46,10 +47,10 @@ class Revenue extends Component {
       },
       data: formdata
     })
-      .then(response => {
-        const result = response.data;
+      .then(response => 
+       {const result = response.data;
         this.setState({ result });
-      })
+       })
 
   }
 
@@ -80,14 +81,19 @@ class Revenue extends Component {
           </div>
         </div>
 
+
         {
-          this.state.result.map(item => <div>
+          this.state.result.map((item) =>(
+
+            <div key={item._id}>
+<div>
             <div>SUM :- {item.SUM}</div>
             <div>COUNT :- {item.COUNT}</div>
           </div>
-
-          )
+          </div>
+          ))
         }
+      
 
       </div>
 

@@ -1,619 +1,606 @@
-import React, { Component } from 'react'
-import axios from 'axios';
-import './Category.css';
+import React, { Component } from "react";
+import "./Category.scss";
+
+import axios from "axios";
+
 export class AddCategory extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            file: null,
-            categoryName: null,
-            people: [],
-            id: null,
-            showPopup: false,
-            activeOrderId: null,
-            loading: true,
-            imageUrl: "",
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: null,
+      categoryName: null,
+      people: [],
+      id: null,
+      showPopup: false,
+      activeOrderId: null,
+      loading: true,
+      imageUrl: "",
+    };
 
-        this.togglePopup = this.togglePopup.bind(this);
+    this.togglePopup = this.togglePopup.bind(this);
+  }
 
-    }
+  async componentDidMount() {
+    const url = "http://localhost:8020/categorypost/categories";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ people: data.categoryposts, loading: false });
+    this.searchArray = data;
+  }
 
+  handleName(e) {
+    let categoryName = e.target.value;
+    this.setState({ categoryName: categoryName });
+  }
 
+  handleFile(e) {
+    let file = e.target.files[0];
+    this.setState({ file: file });
+  }
 
-    async componentDidMount() {
+  handleUpload(e) {
+    let file = this.state.file;
+    let categoryName = this.state.categoryName;
+    let formdata = new FormData();
 
-        const url = "http://localhost:8020/categorypost/categories";
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({ people: data.categoryposts, loading: false });
-        this.searchArray = data
-    }
+    formdata.append("imageUrl", file);
+    formdata.append("categoryName", categoryName);
 
-    handleName(e) {
-        let categoryName = e.target.value
-        this.setState({ categoryName: categoryName })
-    }
+    axios({
+      url: `http://localhost:8020/categorypost/create`,
+      method: "POST",
+      headers: {
+        authorization: `your token`,
+      },
+      data: formdata,
+    }).then(
+      (res) => {
+        this.componentDidMount();
+      },
+      (err) => {}
+    );
+  }
 
-    handleFile(e) {
-        let file = e.target.files[0]
-        this.setState({ file: file })
-    }
+  delete(id) {
+    fetch("http://localhost:8020/categorypost/delete/" + id, {
+      method: "DELETE",
+    }).then((data) => {
+      data.json().then((resp) => {
+        alert("Are You Sure Delete");
+        this.componentDidMount();
+      });
+    });
+  }
 
-    handleUpload(e) {
-        let file = this.state.file
-        let categoryName = this.state.categoryName
-        let formdata = new FormData()
+  togglePopup(data) {
+    this.setState({
+      showPopup: !this.state.showPopup,
+      activeId: data._id,
+    });
+  }
 
-        formdata.append('imageUrl', file)
-        formdata.append('categoryName', categoryName)
+  render() {
+    return (
+      <div>
+        <div>
+          <h1>Add Category</h1>
 
-        axios({
-            /*  url: `http://192.168.0.61:8020/categorypost/create`, */
-            url: `http://localhost:8020/categorypost/create`,
-            method: "POST",
-            headers: {
-                authorization: `your token`
-            },
-            data: formdata
-        }).then((res) => {
-            this.componentDidMount()
-
-        }, (err) => {
-        }
-        )
-
-    }
-
-    delete(id) {
-        /* fetch('http://192.168.0.61:8020/categorypost/delete/' + id,*/
-        fetch('http://localhost:8020/categorypost/delete/' + id,
-            {
-                method: 'DELETE',
-            }).then((data) => {
-                data.json().then((resp) => {
-                    alert("Are You Sure Delete")
-                    this.componentDidMount()
-                })
-            })
-    }
-
-
-    update(id) {
-
-        fetch('http://localhost:8020/categorypost/update/' + id, {
-            method: 'PUT',
-            header: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-    }
-
-    togglePopup(data) {
-        this.setState({
-            showPopup: !this.state.showPopup,
-            activeId: data._id
-
-        });
-    }
-
-    renderTableData() {
-        return this.state.people.map((data) => {
-            return (
-
-                <tr key={data._id}>
-
-                    <td><div className="category-name">{data.categoryName}</div></td>
-
-                    <td><img height="100px" width="100px" className="img" src={data.imageUrl} /></td>
-
-                    <td><div className="button2">
-                        <button className="cart-button" onClick={() => this.togglePopup(data)}>Add Item</button>
-                        {this.state.showPopup ?
-                            <Popup _id={this.state.activeId}
-                                text='Close Me'
-                                closePopup={() => this.togglePopup(data)}
-                            />
-                            : null
-                        }
-                    </div>
-                    </td>
-                    <td>
-                        <div className="button3">
-                            <button className="btn3" onClick={() => this.delete(data._id)}> Delete </button>
-                        </div></td>
-
-                </tr>
-            )
-        })
-    }
-
-
-    render() {
-        return (
-            <div className="manager-additem">
-                <div className="add-category">
-                    <div className="container">
-
-                        <h4>Add Category</h4>
-
-                        <div className="file">
-                            <input type="file" multiple name="file" onChange={(e) => this.handleFile(e)} />
-                        </div>
-
-                        <div className="title">Title</div>
-                        <div className="text1">
-                            <input type="text" className="text2" multiple name="categoryName" onChange={(e) => this.handleName(e)} />
-                        </div>
-
-                        <div className="button1">
-                            <button className="btn1" onClick={(e) => this.handleUpload(e)}>Upload</button>
-                        </div>
-                    </div>
-
-                    <div className="container1">
-
-                        <div className="category-manager">Categories</div>
-
-                        <div className="content">
-
-                            <table id="table" >
-
-                                <tr>
-                                    <th width="130px" height="50px">Title</th>
-                                    <th width="170px" height="50px">Image</th>
-                                    <th width="550px" height="50px">Action</th>
-                                </tr>
-
-                            </table>
-
-                        </div>
-
-                        <div>
-
-                            <table id='students'>
-                                <tbody>
-                                    {this.renderTableData()}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+          <div className="ac">
+            <div className="ac1">
+              <div className="ac2">
+                <div className="title">Image</div>
+                <div className="text1">
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={(e) => this.handleFile(e)}
+                  />
                 </div>
 
+                <div className="title">Category-Name</div>
+                <div className="text1">
+                  <input
+                    type="text"
+                    className="text2"
+                    name="categoryName"
+                    onChange={(e) => this.handleName(e)}
+                  />
+                </div>
+
+                <div className="button1">
+                  <button
+                    className="btn1"
+                    onClick={(e) => this.handleUpload(e)}
+                  >
+                    Upload
+                  </button>
+                </div>
+              </div>
             </div>
-        )
-    }
+          </div>
+        </div>
+
+        <div>
+          <label className="tn">Categories</label>
+          <div>
+            <table className="act">
+              <td>Category-Name</td>
+              <td>Image</td>
+              <td>Action</td>
+            </table>
+            {this.state.people.map((data) => (
+              <div key={data._id}>
+                <div>
+                  <div>
+                    <table className="act1">
+                      <tr>
+                        <td> {data.categoryName}</td>
+                        <td>
+                          <img
+                            height="100px"
+                            width="100px"
+                            className="img"
+                            src={data.imageUrl}
+                          />
+                        </td>
+                        <td>
+                          <button
+                            className="teb teb1"
+                            onClick={() => this.togglePopup(data)}
+                          >
+                            Add Menu
+                          </button>
+
+                          <button
+                            className="teb teb1"
+                            onClick={() => this.delete(data._id)}
+                            variant="danger"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  {this.state.showPopup ? (
+                    <Popup
+                      _id={this.state.activeId}
+                      text="Close Me"
+                      closePopup={() => this.togglePopup(data)}
+                    />
+                  ) : null}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default AddCategory;
 
-
 class Popup extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            file: null,
-            name: null,
-            people: [],
-            showSecondPopup: false,
-            loading: true,
-            imageUrl: "",
-            originalPrice: "",
-            description: "",
-            offer: "",
-            activeId1:null,
-        };
-        this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: null,
+      name: null,
+      people: [],
+      showSecondPopup: false,
+      loading: true,
+      imageUrl: "",
+      originalPrice: "",
+      description: "",
+      offer: "",
+      activeId1: null,
+    };
+    this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+  }
 
-    }
+  async componentDidMount() {
+    const url = "http://localhost:8020/menu/menu/" + this.props._id;
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ people: data.products, loading: false });
+    this.searchArray = data;
+  }
 
-    async componentDidMount() {
-        const url = "http://localhost:8020/menu/menu/" + this.props._id;
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({ people: data.products, loading: false });
-        this.searchArray = data;
-    }
+  handleItemName(e) {
+    let name = e.target.value;
+    this.setState({ name: name });
+  }
 
+  handleItemFile(e) {
+    let file = e.target.files[0];
+    this.setState({ file: file });
+  }
 
-    handleItemName(e) {
-        let name = e.target.value;
-        this.setState({ name: name });
-    }
+  handleItemPrice(e) {
+    let originalPrice = e.target.value;
+    this.setState({ originalPrice: originalPrice });
+  }
 
-    handleItemFile(e) {
-        let file = e.target.files[0];
-        this.setState({ file: file });
-    }
+  handleItemOffer(e) {
+    let offer = e.target.value;
+    this.setState({ offer: offer });
+  }
 
-    handleItemPrice(e) {
-        let originalPrice = e.target.value;
-        this.setState({ originalPrice: originalPrice });
-    }
+  handleItemDescription(e) {
+    let description = e.target.value;
+    this.setState({ description: description });
+  }
 
-    handleItemOffer(e) {
-        let offer = e.target.value;
-        this.setState({ offer: offer });
-    }
+  async handleItemUpload(e) {
+    e.preventDefault();
 
-    handleItemDescription(e) {
-        let description = e.target.value;
-        this.setState({ description: description });
-    }
+    let file = this.state.file;
+    let name = this.state.name;
+    let originalPrice = this.state.originalPrice;
+    let description = this.state.description;
 
-    async handleItemUpload(e) {
-        e.preventDefault();
+    let formdata = new FormData();
 
-        let file = this.state.file;
-        let name = this.state.name;
-        let originalPrice = this.state.originalPrice;
-        let description = this.state.description;
+    formdata.append("imageUrl", file);
+    formdata.append("name", name);
+    formdata.append("originalPrice", originalPrice);
+    formdata.append("description", description);
 
-        let formdata = new FormData();
+    axios({
+      url: `http://localhost:8020/menu/create/` + this.props._id,
+      method: "POST",
+      headers: {
+        authorization: `your token`,
+      },
+      data: formdata,
+    }).then(
+      (res) => {
+        this.componentDidMount();
+      },
+      (err) => {}
+    );
+  }
 
-        formdata.append("imageUrl", file);
-        formdata.append("name", name);
-        formdata.append("originalPrice", originalPrice);
-        formdata.append("description", description);
+  toggleSecondPopup(data) {
+    this.setState({
+      showSecondPopup: !this.state.showSecondPopup,
+      activeId1: data._id,
+    });
+  }
 
-        axios({
-            url: `http://localhost:8020/menu/create/` + this.props._id,
-            method: "POST",
-            headers: {
-                authorization: `your token`,
-            },
-            data: formdata,
-        }).then(
-            (res) => {
-                this.componentDidMount();
-            },
-            (err) => { }
-        );
-    }
+  delete(_id) {
+    fetch("http://localhost:8020/menu/delete/" + _id, {
+      method: "DELETE",
+    }).then((data) => {
+      data.json().then((resp) => {
+        alert("Are You Sure Delete");
+        this.componentDidMount();
+      });
+    });
+  }
 
-    toggleSecondPopup(data) {
-        this.setState({
-            showSecondPopup: !this.state.showSecondPopup,
-            activeId1: data._id
+  render() {
+    return (
+      <div className="acp">
+        <div className="acp1">
+          <div className="closeItem-set">
+            <button className="closeItem-btn" onClick={this.props.closePopup}>
+              X
+            </button>
+          </div>
 
-        });
-    }
+          <div>
+            <label className="mn">Add Menu</label>
+            <div>
+              <div className="ac">
+                <div className="ac1">
+                  <div className="ac2">
+                    <div className="text1">
+                      <input
+                        type="file"
+                        name="file"
+                        onChange={(e) => this.handleItemFile(e)}
+                      />
+                    </div>
 
-    delete(_id) {
-        fetch("http://localhost:8020/menu/delete/" + _id, {
-            method: "DELETE",
-        }).then((data) => {
-            data.json().then((resp) => {
-                alert("Are You Sure Delete");
-                this.componentDidMount();
-            });
-        });
-    }
+                    <div className="title">Sub-Title</div>
+                    <div className="text1">
+                      <input
+                        className="text2"
+                        type="text"
+                        name="name"
+                        onChange={(e) => this.handleItemName(e)}
+                      />
+                    </div>
 
-    renderTableData() {
-        return this.state.people.map((data) => {
-            const {
-                _id,
-                name,
-                imageUrl,
-                originalPrice,
-                description,
-                offer,
-                offerPrice,
-            } = data;
-            return (
-                <tr key={_id}>
-                    <td width="150px">
-                        <div className="name">{name}</div>
-                    </td>
+                    <div className="title">Price (RS)</div>
+                    <div className="price2">
+                      <input
+                        className="price3"
+                        type="number"
+                        name="originalPrice"
+                        min="1"
+                        onChange={(e) => this.handleItemPrice(e)}
+                      />
+                    </div>
 
-                    <td width="150px">
-                        <img className="img" src={imageUrl} />
-                    </td>
+                    <div className="title">Offer</div>
+                    <div className="price2">
+                      <input
+                        className="price3"
+                        type="number"
+                        name="offer"
+                        min="1"
+                        onChange={(e) => this.handleItemOffer(e)}
+                      />
+                    </div>
 
-                    <td width="100px">
-                        <div className="price"> {originalPrice} ₹ </div>
-                    </td>
+                    <div className="title">Description</div>
+                    <div className="dsc1">
+                      <textarea
+                        className="dsc2"
+                        type="text"
+                        name="description"
+                        onChange={(e) => this.handleItemDescription(e)}
+                      />
+                    </div>
 
-                    <td width="100px">
-                        <div className="offer1"> {offer} % </div>
-                    </td>
+                    <div className="button1">
+                      <button
+                        className="btn1"
+                        onClick={(e) => this.handleItemUpload(e)}
+                      >
+                        Upload
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                    <td width="100px">
-                        <div className="offer2"> {offerPrice} ₹ </div>
-                    </td>
+          <div>
+            <label className="ctn"> Menu</label>
 
-                    <td width="200px">
-                        <div className="description">{description}</div>
-                    </td>
+            <div>
+              <table className="am">
+                <td>Title</td>
+                <td>Image</td>
+                <td>Price</td>
+                <td>Offer</td>
+                <td>OfferPrice</td>
+                <td>Description</td>
+                <td>Action</td>
+              </table>
 
-                    <td width="300px">
-                        <div className="button6">
+              {this.state.people.map((data) => (
+                <div key={data._id}>
+                  <div>
+                    <div>
+                      <table className="am1">
+                        <tr>
+                          <td> {data.name}</td>
+                          <td>
+                            <img
+                              height="80px"
+                              width="80px"
+                              className="img"
+                              src={data.imageUrl}
+                            />
+                          </td>
+
+                          <td>{data.originalPrice}</td>
+                          <td>{data.offer}</td>
+                          <td>{data.offerPrice}</td>
+                          <td>{data.description}</td>
+
+                          <td>
                             <button
-                                className="btn6"
-                                onClick={() => this.delete(data._id)}
-                                variant="danger"
+                              className="ectb ectb1"
+                              onClick={() => this.toggleSecondPopup(data)}
                             >
-                                Delete
-              </button>
-                        </div>
-                    </td >
+                              Edit Item
+                            </button>
 
-                    <td width="300px">
-                        <div className="button6">
-                            <button className="btn6" onClick={() => this.toggleSecondPopup(data)}>Edit</button>
-                        </div>
-                    </td>
+                            <button
+                              className="ectb ectb1"
+                              onClick={() => this.delete(data._id)}
+                              variant="danger"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
 
                     {this.state.showSecondPopup ? (
-                        <SecondPopup
-                            id1={this.state.activeId1}
-                            closeSecondPopup={() => this.toggleSecondPopup(data)}
-                        />
+                      <SecondPopup
+                        id1={this.state.activeId1}
+                        closeSecondPopup={() => this.toggleSecondPopup(data)}
+                      />
                     ) : null}
-                </tr>
-            );
-        });
-    }
-
-    render() {
-        return (
-            <div className='popup-item'>
-                <div className='popupItem_inner'>
-                    <div className="closeItem-set">
-                        <button className="closeItem-btn" onClick={this.props.closePopup}>X</button>
-                    </div>
-
-                    <div>
-                        
-                            <div className="container">
-                                    <h4>Add Menu</h4>
-
-                                    <div className="file">
-                                        <input
-                                            type="file"
-                                            name="file"
-                                            onChange={(e) => this.handleItemFile(e)}
-                                        />
-                                    </div>
-
-                                    <div className="Itemtitle">Sub-Title</div>
-                                    <div className="text1">
-                                        <input
-                                            className="text2"
-                                            type="text"
-                                            name="name"
-                                            onChange={(e) => this.handleItemName(e)}
-                                        />
-                                    </div>
-
-                                    <div className="price1">Price (RS)</div>
-                                    <div className="price2">
-                                        <input
-                                            className="price3"
-                                            type="number"
-                                            name="originalPrice"
-                                            min="1"
-                                            onChange={(e) => this.handleItemPrice(e)}
-                                        />
-                                    </div>
-
-                                    <div className="price1">Offer</div>
-                                    <div className="price2">
-                                        <input
-                                            className="price3"
-                                            type="number"
-                                            name="offer"
-                                            min="1"
-                                            onChange={(e) => this.handleItemOffer(e)}
-                                        />
-                                    </div>
-
-                                    <div className="dsc">Description</div>
-                                    <div className="dsc1">
-                                        <textarea
-                                            className="dsc2"
-                                            type="text"
-                                            name="description"
-                                            onChange={(e) => this.handleItemDescription(e)}
-                                        />
-                                    </div>
-
-                                    <div className="button4">
-                                        <button className="btn4" onClick={(e) => this.handleItemUpload(e)}>
-                                            Upload
-                                        </button>
-                                    </div>
-
-                            </div>
-
-                        <div className="container1">
-                            <div className="manager-menu"> Menu</div>
-
-                            <div className="content1">
-                                <table id="table1">
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Image</th>
-                                        <th>Price</th>
-                                        <th>Offer</th>
-                                        <th>OfferPrice</th>
-                                        <th>Description</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div>
-                                <table id="students1">
-                                    <tbody>{this.renderTableData()}</tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-                    </div>
+                  </div>
                 </div>
+              ))}
             </div>
-        );
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-
-
 class SecondPopup extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            file: null,
-            name: null,
-            showSecondPopup: false,
-            loading: true,
-            imageUrl: "",
-            originalPrice: "",
-            description: "",
-            offer: "",
-            activeId1:null,
-        };
-        this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: null,
+      name: null,
+      showSecondPopup: false,
+      loading: true,
+      imageUrl: "",
+      originalPrice: "",
+      description: "",
+      offer: "",
+      activeId1: null,
+    };
+    this.toggleSecondPopup = this.toggleSecondPopup.bind(this);
+  }
 
-    }
+  EditItemName(e) {
+    let name = e.target.value;
+    this.setState({ name: name });
+  }
 
-    EditItemName(e) {
-        let name = e.target.value;
-        this.setState({ name: name });
-    }
+  EditItemFile(e) {
+    let file = e.target.files[0];
+    this.setState({ file: file });
+  }
 
-    EditItemFile(e) {
-        let file = e.target.files[0];
-        this.setState({ file: file });
-    }
+  EditItemPrice(e) {
+    let originalPrice = e.target.value;
+    this.setState({ originalPrice: originalPrice });
+  }
 
-    EditItemPrice(e) {
-        let originalPrice = e.target.value;
-        this.setState({ originalPrice: originalPrice });
-    }
+  EditItemOffer(e) {
+    let offer = e.target.value;
+    this.setState({ offer: offer });
+  }
 
-    EditItemOffer(e) {
-        let offer = e.target.value;
-        this.setState({ offer: offer });
-    }
+  EditItemDescription(e) {
+    let description = e.target.value;
+    this.setState({ description: description });
+  }
 
-    EditItemDescription(e) {
-        let description = e.target.value;
-        this.setState({ description: description });
-    }
+  async handleItemEdit(e) {
+    e.preventDefault();
 
-    async handleItemEdit(e) {
-        e.preventDefault();
+    let file = this.state.file;
+    let name = this.state.name;
+    let offer = this.state.offer;
+    let description = this.state.description;
 
-        let file = this.state.file;
-        let name = this.state.name;
-        let offer = this.state.offer;
-        let description = this.state.description;
+    let formdata = new FormData();
 
-        let formdata = new FormData();
+    formdata.append("imageUrl", file);
+    formdata.append("name", name);
+    formdata.append("offer", offer);
+    formdata.append("description", description);
 
-        formdata.append("imageUrl", file);
-        formdata.append("name", name);
-        formdata.append("offer", offer);
-        formdata.append("description", description);
+    axios({
+      url: `http://localhost:8020/menu/update/` + this.props.id1,
+      method: "PUT",
+      headers: {
+        authorization: `your token`,
+      },
+      data: formdata,
+    }).then(
+      (res) => {
+        this.setState({ showSecondPopup: !this.state.showSecondPopup });
+        this.componentDidMount();
 
-        axios({
-            url: `http://localhost:8020/menu/update/` + this.props.id1,
-            method: "PUT",
-            headers: {
-                authorization: `your token`,
-            },
-            data: formdata,
-        }).then(
-            (res) => {this.setState({showSecondPopup: !this.state.showSecondPopup})
-            },
-            (err) => { }
-        );
-    }
+      },
+      (err) => {}
+    );
+  }
 
-    toggleSecondPopup(data) {
-        this.setState({
-            showSecondPopup: !this.state.showSecondPopup,
-            activeId1: data._id
-        });
-    }
+  toggleSecondPopup(data) {
+    this.setState({
+      showSecondPopup: !this.state.showSecondPopup,
+      activeId1: data._id,
+    });
+  }
+
+  render() {
+    return (
+      <div className="acp">
+        <div className="acp1">
+          <div className="secondcloseItem-set">
+            <button
+              className="secondcloseItem-btn"
+              onClick={this.props.closeSecondPopup}
+            >
+              X
+            </button>
+          </div>
 
 
-    render() {
-        return (
-            <div className='Secondpopup-item'>
-                <div className='SecondpopupItem_inner'>
-                    <div className="secondcloseItem-set">
-                        <button className="secondcloseItem-btn" onClick={this.props.closeSecondPopup}>X</button>
-                    </div>
 
-                    <div>
-                        
-                            <div className="container">
-                                    <h4>Edit Menu</h4>
-
-                                    <div className="file">
-                                        <input
-                                            type="file"
-                                            name="file"
-                                            onChange={(e) => this.EditItemFile(e)}
-                                        />
-                                    </div>
-
-                                    <div className="Itemtitle">Sub-Title</div>
-                                    <div className="text1">
-                                        <input
-                                            className="text2"
-                                            type="text"
-                                            name="name"
-                                            onChange={(e) => this.EditItemName(e)}
-                                        />
-                                    </div>
-
-                                    <div className="price1">Price (RS)</div>
-                                    <div className="price2">
-                                        <input
-                                            className="price3"
-                                            type="number"
-                                            name="originalPrice"
-                                            min="1"
-                                            onChange={(e) => this.EditItemPrice(e)}
-                                        />
-                                    </div>
-
-                                    <div className="price1">Offer</div>
-                                    <div className="price2">
-                                        <input
-                                            className="price3"
-                                            type="number"
-                                            name="offer"
-                                            min="1"
-                                            onChange={(e) => this.EditItemOffer(e)}
-                                        />
-                                    </div>
-
-                                    <div className="dsc">Description</div>
-                                    <div className="dsc1">
-                                        <textarea
-                                            className="dsc2"
-                                            type="text"
-                                            name="description"
-                                            onChange={(e) => this.EditItemDescription(e)}
-                                        />
-                                    </div>
-
-                                    <div className="button4">
-                                        <button className="btn4" onClick={(e) => this.handleItemEdit(e)}>
-                                            Submit
-                                        </button>
-                                    </div>
-                            </div>
-                    </div>
-                </div>
+          <div>
+    <label className="mn">Edit Item</label>
+    <div>
+      <div className="ac">
+        <div className="ac1">
+          <div className="ac2">
+            <div className="text1">
+              <input
+                type="file"
+                name="file"
+                onChange={(e) => this.EditItemFile(e)}
+                />
             </div>
-        );
-    }
+
+            <div className="title">Sub-Title</div>
+            <div className="text1">
+              <input
+                className="text2"
+                type="text"
+                name="name"
+                onChange={(e) => this.EditItemName(e)}
+                />
+            </div>
+
+            <div className="title">Price (RS)</div>
+            <div className="price2">
+              <input
+                className="price3"
+                type="number"
+                name="originalPrice"
+                min="1"
+                onChange={(e) => this.EditItemPrice(e)}
+                />
+            </div>
+
+            <div className="title">Offer</div>
+            <div className="price2">
+              <input
+                className="price3"
+                type="number"
+                name="offer"
+                min="1"
+                onChange={(e) => this.EditItemOffer(e)}
+                />
+            </div>
+
+            <div className="title">Description</div>
+            <div className="dsc1">
+              <textarea
+                className="dsc2"
+                type="text"
+                name="description"
+                onChange={(e) => this.EditItemDescription(e)}
+                />
+            </div>
+
+            <div className="button1">
+              <button
+                className="btn1"
+                onClick={(e) => this.handleItemEdit(e)}>
+                Upload
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+</div>
+</div>
+);
+}
 }

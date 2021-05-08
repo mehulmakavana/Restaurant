@@ -31,7 +31,7 @@ export class Complaints extends Component {
       <div>
       <h1>Complaints</h1>
       <div>
-      <table className="ct">
+      <table className="cmt">
        
        <td>Title</td>
        <td>Message</td>
@@ -41,8 +41,8 @@ export class Complaints extends Component {
         {this.state.people.map((complaints) => (
           <div key={complaints._id}>
             <div>
-              <div>
-              <table className="ct1">
+           
+              <table className="cmt1">
                   <tr>
                     <td> {complaints.title}</td>
                     <td> {complaints.message}</td>
@@ -52,9 +52,7 @@ export class Complaints extends Component {
               
               </div>
 
-            
-            
-            </div>
+           
           </div>
         ))}
       

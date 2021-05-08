@@ -83,7 +83,7 @@ export class Dashboard1 extends Component {
         <div className="flex1">
           <div className="flex2">
 
-            <Link className="link" to="/Order">
+            <Link className="link" to="/OrdersHistory">
             <h2>TOTAL ORDER
               <div>{this.state.order}</div>
             </h2>

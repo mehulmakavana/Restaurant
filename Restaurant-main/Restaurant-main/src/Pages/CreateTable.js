@@ -165,36 +165,41 @@ export class CreateTable extends Component {
         <div>
           <h1>Add Table</h1>
 
-          <div className="title">Table-Number</div>
-          <div className="text1">
-            <input
-              type="number"
-              className="text2"
-              name="table"
-              onChange={(e) => this.handleTable(e)}
-            />
-          </div>
+          <div className="ct">
+            <div className="ct1">
+              <div className="ct2">
+                <div className="title">Table-Number</div>
+                <div className="text1">
+                  <input
+                    type="number"
+                    className="text2"
+                    name="table"
+                    onChange={(e) => this.handleTable(e)}
+                  />
+                </div>
 
-          <div className="title">Table-Size</div>
-          <div className="text1">
-            <input
-              type="number"
-              className="text2"
-              name="size"
-              onChange={(e) => this.handleSize(e)}
-            />
-          </div>
+                <div className="title">Table-Size</div>
+                <div className="text1">
+                  <input
+                    type="number"
+                    className="text2"
+                    name="size"
+                    onChange={(e) => this.handleSize(e)}
+                  />
+                </div>
 
-          <div className="button1">
-            <button className="btn1" onClick={(e) => this.handleUpload(e)}>
-              Upload
-            </button>
+                <div className="button1">
+                  <button
+                    className="btn1"
+                    onClick={(e) => this.handleUpload(e)}
+                  >
+                    Upload
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-
-
-
 
         <div>
           <label className="tn">Tables-Details</label>
