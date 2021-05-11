@@ -24,7 +24,7 @@
 
 .act td {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   background-color: rgb(120, 187, 187);
   font-size: 25px;
 }
@@ -36,7 +36,7 @@
 .act1 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  text-align: center;
+  text-align: left;
 }
 
 .act1 tr:hover {
@@ -97,7 +97,7 @@ background-color: white;
 .am1 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  text-align: center;
+  text-align: left;
 }
 
 .am1 tr:hover {
@@ -127,25 +127,6 @@ background-color: white;
   background-color: #555555;
   color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .closeItem-set{
@@ -178,16 +159,7 @@ top: 0;
 left: 0;
 }
 
-.container {
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-  width: 50%;
-  background-color: rgb(53, 52, 52);
-  align-items: center;
-  margin: auto;
-  margin-bottom: 30px;
-}
+
 
 .category-manager{
     text-align: center;
@@ -200,23 +172,6 @@ left: 0;
 .category-name{
     color: white;
 }
-
-
-#students {
-  text-align: center;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #ddd;
-  width: 100%;
-}
-
-#students td, #students th {
-  border: 1px solid ;
-  padding: 10px;
-  color: white;
-}
-
-#students tr:hover {background-color: rgb(75, 73, 73);}
 
 
 .file {
@@ -356,31 +311,7 @@ padding: 10px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 300px) {
-  .container {
-    width: 30%;
-    height: 30%;
-    justify-content: center;
-    align-items: center;
-  }
-  .container1 {
-    width: 30%;
-    height: 30%;
-    justify-content: center;
-    align-items: center;
-  }
-}
 
-.container{
-  flex-direction: column;
-  justify-content: center;
-  height: 50%;
-  width: 50%;
-  background-color: rgb(53, 52, 52);
-  align-items: center;
-  margin: auto;
-  margin-bottom: 50px; 
-}
 
 .Item-file{
   margin-bottom: 10px;
@@ -515,33 +446,6 @@ color: white;
 cursor: pointer;
 }
 
-#table1 {
-  width: 100%;
-}
-
-#table1 th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: rgb(255, 255, 255);
-}
-
-#students1 {
-  text-align: center;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid rgb(0, 0, 0);
-  width: 100%;
-}
-
-#students1 th {
-  border: 1px solid;
-  padding: 10px;
-  color: rgb(0, 0, 0);
-}
-
-#students1 tr:hover {
-  background-color: rgb(75, 73, 73);
-}
 
 .card1 {
   height: 100vh;

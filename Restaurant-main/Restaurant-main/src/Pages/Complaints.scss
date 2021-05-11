@@ -2,11 +2,12 @@
   width: 100%;
   border-collapse: collapse;
 
+
 }
 
 .cmt td {
-  padding: 25px;
-  text-align: center;
+  padding: 10px;
+  text-align: left;
   background-color: rgb(221, 223, 226);
   font-size: 25px;
 
@@ -15,13 +16,14 @@
 .cmt1 {
   width: 100%;
   border-collapse: collapse;
+
 }
 
 
 .cmt1 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  text-align: center;
+  text-align: left;
 }
 
 .cmt1 tr:hover {

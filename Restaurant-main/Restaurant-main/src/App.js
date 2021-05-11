@@ -10,7 +10,6 @@ import ViewUser from './Pages/ViewUser';
 import ViewWaiter from './Pages/ViewWaiter';
 import ViewManager from './Pages/ViewManager';
 import Ratings from './Pages/Ratings';
-import Menu from './Pages/Menu';
 import AddStaff from './Pages/AddStaff';
 import Complaints from './Pages/Complaints';
 import Revenue from './Pages/Revenue';
@@ -34,7 +33,6 @@ function App() {
         <Route path='/ViewManager/ViewWaiter' component={ViewWaiter} />
         <Route path='/ViewManager' component={ViewManager} />
         <Route path='/Ratings' component={Ratings} />
-        <Route path='/Menu/:_id' component={Menu} />
         <Route path='/AddStaff' component={AddStaff} />
         <Route path='/Complaints' component={Complaints} />
         <Route path='/Revenue' component={Revenue} />

@@ -60,7 +60,7 @@ class Popup extends React.Component {
 
         <div className="popup_inner">
 
-          <label className="label">Edit Details</label>
+          <label className="label">Edit Staff Details</label>
 
             <div className="dtl">
             <div className="title">Name</div>
