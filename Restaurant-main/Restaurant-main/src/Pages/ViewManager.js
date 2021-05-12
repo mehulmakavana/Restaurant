@@ -176,6 +176,7 @@ class viewManager extends Component {
          <td>Name</td>
          <td>Email</td>
          <td>Phone</td>
+         <td>Time</td>
          <td>Action</td>
       
        </table>
@@ -188,6 +189,7 @@ class viewManager extends Component {
                       <td> {manager.name}</td>
                       <td> {manager.email}</td>
                       <td>{manager.phone}</td>
+                      <td>{manager.created_At}</td>
                       <td>
                         <button className="sb sb1" onClick={() => this.togglePopup(manager)}>
                           Edit item

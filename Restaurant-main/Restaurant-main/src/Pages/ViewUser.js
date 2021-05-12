@@ -58,6 +58,7 @@ export class viewUser extends Component {
          <td>Name</td>
          <td>Email</td>
          <td>Phone</td>
+         <td>Time</td>
          <td>Action</td>
       
        </table>
@@ -70,6 +71,7 @@ export class viewUser extends Component {
                       <td> {user.name}</td>
                       <td> {user.email}</td>
                       <td>{user.phone}</td>
+                      <td>{user.created_At}</td>
                       <td>
             
                         <button className="sb sb1"

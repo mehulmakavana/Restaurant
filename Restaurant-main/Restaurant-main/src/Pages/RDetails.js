@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Rating.scss'
+import './RDetails.scss'
 
-export class Ratings extends Component {
+export class RDetail extends Component {
 
     constructor(props) {
 
@@ -13,43 +13,44 @@ export class Ratings extends Component {
         }
     }
 
-    
+
     async componentDidMount() {
 
-        const url = "http://localhost:8020/feedback/feedbacks"
+        const url = "http://localhost:8020/restaurant/getrestaurants"
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({ people: data.feedbacks, loading: false });
+        this.setState({ people: data.list, loading: false });
         this.searchArray = data
-    }
-   
+      }
+
 
     render() {
 
         return (
 
             <div>
-            <h1>Ratings</h1>
+            <h1>Restaurants Details</h1>
             <div>
-            <table className="rt">
+            <table className="rd">
              
-             <td>Title</td>
-             <td>Ratings</td>
-             <td>Message</td>
+             <td>RestaurantName</td>
+             <td>Payments</td>
              <td>Time</td>
-        
           
            </table>
-              {this.state.people.map((rating) => (
-                <div key={rating._id}>
+
+     
+
+              {this.state.people.map((detail) => (
+                <div key={detail._id}>
                   <div>
                     <div>
-                    <table className="rt1">
+                    <table className="rd1">
                         <tr>
-                          <td> {rating.title}</td>
-                          <td> {rating.rating}</td>
-                          <td>{rating.message}</td>
-                         <td> {rating.created_At}</td>
+                          <td> {detail.RestaurantName}</td>
+                          <td> {detail.payment}</td>
+                          <td>{detail.createdAt}</td>
+                        
                           
                         </tr>
                         </table>
@@ -68,5 +69,5 @@ export class Ratings extends Component {
       }
     }
 
-export default Ratings;
+export default RDetail;
 

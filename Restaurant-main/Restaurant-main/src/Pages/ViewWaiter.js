@@ -173,6 +173,7 @@ export class ViewWaiter extends Component {
               <td>Name</td>
               <td>Email</td>
               <td>Phone</td>
+              <td>Time</td>
               <td>Action</td>
            
             </table>
@@ -186,6 +187,7 @@ export class ViewWaiter extends Component {
                       <td> {waiter.name}</td>
                       <td> {waiter.email}</td>
                       <td>{waiter.phone}</td>
+                       <td>{waiter.created_At}</td>
                       <td>
                         <button className="sb sb1" onClick={() => this.togglePopup(waiter)}>
                           Edit item

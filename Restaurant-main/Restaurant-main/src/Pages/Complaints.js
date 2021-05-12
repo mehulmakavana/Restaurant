@@ -35,6 +35,7 @@ export class Complaints extends Component {
        
        <td>Title</td>
        <td>Message</td>
+       <td>Time</td>
   
     
      </table>
@@ -46,6 +47,7 @@ export class Complaints extends Component {
                   <tr>
                     <td> {complaints.title}</td>
                     <td> {complaints.message}</td>
+                   <td> {complaints.created_At}</td>
                     
                   </tr>
                   </table>

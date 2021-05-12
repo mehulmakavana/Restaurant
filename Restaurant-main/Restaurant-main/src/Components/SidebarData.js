@@ -100,4 +100,11 @@ export const SidebarData = [
     icon: <GiReceiveMoney />,
     cName: "nav-text",
   },
+
+  {
+    title: "Restaurants Details",
+    path: "/RDetails",
+    icon: <GiReceiveMoney />,
+    cName: "nav-text",
+  },
 ];

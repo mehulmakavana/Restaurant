@@ -14,6 +14,7 @@ import AddStaff from './Pages/AddStaff';
 import Complaints from './Pages/Complaints';
 import Revenue from './Pages/Revenue';
 import CreateTable from './Pages/CreateTable';
+import RDetails from './Pages/RDetails';
 
 
 
@@ -36,6 +37,8 @@ function App() {
         <Route path='/AddStaff' component={AddStaff} />
         <Route path='/Complaints' component={Complaints} />
         <Route path='/Revenue' component={Revenue} />
+        <Route path='/RDetails' component={RDetails} />
+
           
 
 

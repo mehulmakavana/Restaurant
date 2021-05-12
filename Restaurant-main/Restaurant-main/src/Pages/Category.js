@@ -126,6 +126,7 @@ export class AddCategory extends Component {
             <table className="act">
               <td>Category-Name</td>
               <td>Image</td>
+              <td>Time</td>
               <td>Action</td>
             </table>
             {this.state.people.map((data) => (
@@ -143,6 +144,7 @@ export class AddCategory extends Component {
                             src={data.imageUrl}
                           />
                         </td>
+                        <td>{data.createdAt}</td>
                         <td>
                           <button
                             className="teb teb1"

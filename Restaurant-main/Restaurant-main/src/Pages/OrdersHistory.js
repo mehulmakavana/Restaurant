@@ -36,7 +36,7 @@ export class OrdersHistory extends Component {
              <td>Name</td>
              <td>Grand-Total</td>
              <td>Payment-Method</td>
-        
+             <td>Time</td>
           
            </table>
               {this.state.people.map((order) => (
@@ -48,6 +48,7 @@ export class OrdersHistory extends Component {
                           <td> {order.name}</td>
                           <td> {order.grandTotal}</td>
                           <td>{order.paymentMethod}</td>
+                         <td> {order.createdAt}</td>
                           
                         </tr>
                         </table>
