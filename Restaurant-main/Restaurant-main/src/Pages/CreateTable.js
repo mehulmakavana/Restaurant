@@ -207,7 +207,6 @@ export class CreateTable extends Component {
             <table className="tb">
               <td>Table-Number</td>
               <td>Table-Size</td>
-              <td>Table-Status</td>
               <td>Action</td>
             </table>
             {this.state.people.map((table) => (
@@ -218,7 +217,6 @@ export class CreateTable extends Component {
                       <tr>
                         <td> {table.table}</td>
                         <td> {table.size}</td>
-                        <td>{table.Status}</td>
                         <td>
                           <button
                             className="teb teb1"

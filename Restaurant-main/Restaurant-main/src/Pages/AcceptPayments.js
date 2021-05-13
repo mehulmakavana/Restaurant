@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './OrderHistory.scss'
+import './RDetails.scss'
 
-export class OrdersHistory extends Component {
+export class RDetail extends Component {
 
     constructor(props) {
 
@@ -16,10 +16,10 @@ export class OrdersHistory extends Component {
 
     async componentDidMount() {
 
-        const url = "http://localhost:8020/order/getorders"
+        const url = "http://localhost:8020/restaurant/getrestaurants"
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({ people: data.orders, loading: false });
+        this.setState({ people: data.list, loading: false });
         this.searchArray = data
       }
 
@@ -29,28 +29,28 @@ export class OrdersHistory extends Component {
         return (
 
             <div>
-            <h1>Orders History</h1>
+            <h1>Restaurants Details</h1>
             <div>
-            <table className="ot">
+            <table className="rd">
              
-             <td>Name</td>
-             <td>Payment-Method</td>
+             <td>RestaurantName</td>
+             <td>Payments</td>
              <td>Time</td>
-             <td>Total</td>
-            
-            
           
            </table>
-              {this.state.people.map((order) => (
-                <div key={order._id}>
+
+     
+
+              {this.state.people.map((detail) => (
+                <div key={detail._id}>
                   <div>
                     <div>
-                    <table className="ot1">
+                    <table className="rd1">
                         <tr>
-                          <td> {order.name}</td>           
-                          <td>{order.paymentMethod}</td>
-                         <td> {order.createdAt}</td>
-                         <td> {order.grandTotal}</td>
+                          <td> {detail.RestaurantName}</td>
+                          <td> {detail.payment}</td>
+                          <td>{detail.createdAt}</td>
+                        
                           
                         </tr>
                         </table>
@@ -69,5 +69,5 @@ export class OrdersHistory extends Component {
       }
     }
 
-export default OrdersHistory
+export default RDetail;
 
