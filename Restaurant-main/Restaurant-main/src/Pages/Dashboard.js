@@ -129,6 +129,7 @@ export class Dashboard2 extends Component {
 
         <Dashboard />
         <Dashboard1 />
+      
 
         <div className="flex3">
           <div className="flex4">
@@ -142,8 +143,8 @@ export class Dashboard2 extends Component {
             </Link>
           </div>
         </div>
+        </div>
 
-      </div>
     )
   }
 

@@ -206,7 +206,7 @@ export class CreateTable extends Component {
           <div>
             <table className="tb">
               <td>Table-Number</td>
-              <td>Table-Size</td>
+              <td>Person</td>
               <td>Action</td>
             </table>
             {this.state.people.map((table) => (

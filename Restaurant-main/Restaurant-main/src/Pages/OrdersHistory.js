@@ -36,7 +36,9 @@ export class OrdersHistory extends Component {
              <td>Name</td>
              <td>Payment-Method</td>
              <td>Time</td>
-             <td>Total</td>
+            
+             <td> <div className="oht">Total(Rs) </div></td>
+            
             
             
           
@@ -50,7 +52,9 @@ export class OrdersHistory extends Component {
                           <td> {order.name}</td>           
                           <td>{order.paymentMethod}</td>
                          <td> {order.createdAt}</td>
-                         <td> {order.grandTotal}</td>
+                         
+                         <td><div className="oht"> {order.grandTotal} </div></td>
+                        
                           
                         </tr>
                         </table>
