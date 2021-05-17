@@ -1,23 +1,32 @@
+.manager-dashboard {
+  background: url('./manager-dash1.jpg') center center/cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.dash-title{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
 body {
   scroll-behavior: smooth;
 }
 
-h1 {
+.title-managerpage {
   text-align: center;
-  background-color: #483d8b;
   background-position-x: center;
   padding: 20px;
-  color: white;
-  background-image: linear-gradient(180deg, black, rgb(88, 88, 92));
+  color: rgb(0, 0, 0);
 }
 
-.flex1 {
-  display: flex;
+.flex-category1 {
   flex-wrap: nowrap;
   justify-content: center;
 }
 
-.flex1 > .flex2 {
+.flex-category1 > .flex-category2 {
   background-color: #f1f1f1;
   width: 500px;
   margin: 10px;
@@ -26,24 +35,28 @@ h1 {
   font-size: 20px;
 }
 
-.flex3 {
-  display: flex;
+.flex-category3 {
   flex-wrap: nowrap;
   justify-content: center;
 
 }
 
-.flex3 > .flex4 {
+.flex-category3 > .flex-category4 {
   background-color: #f1f1f1;
   width: 500px;
   margin: 10px;
   text-align: center;
   line-height: 75px;
   font-size: 20px;
+}
+
+.DashView-Manager{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .link{
   text-decoration: none;
   color: black;
 }
-
