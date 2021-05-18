@@ -1,33 +1,117 @@
-.cmt {
+.popup_complaints {
+  position: fixed;
   width: 100%;
-  border-collapse: collapse;
-
-
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.cmt td {
+.popup_inner-complaints {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  height: 50%;
+  width: 40%;
+  background-image: linear-gradient(
+    180deg,
+    #ffe1aa 0,
+    #ffd4a7 16.67%,
+    #ffc7a2 33.33%,
+    #f2b99d 50%,
+    #e1ac97 66.67%,
+    #d1a092 83.33%,
+    #c2968d 100%
+  );
+}
+
+.pop-complaint {
+  height: 30px;
+  width: 50px;
+  font-weight: bold;
+}
+
+.popbtn2-complaints {
+  display: flex;
+  float: right;
+  margin-top: -270px;
+}
+
+.popbtn-update {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.popbtn1-update {
+  height: 35px;
+  width: 80px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.label-discount {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+.cpt {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cpt td {
   padding: 10px;
   text-align: left;
-  background-color: rgb(221, 223, 226);
   font-size: 25px;
 
+  background-color: rgb(221, 223, 226);
 }
 
-.cmt1 {
+.cpt1 {
   width: 100%;
   border-collapse: collapse;
-
 }
 
-
-.cmt1 td {
+.cpt1 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
 
-.cmt1 tr:hover {
+.cpt1 tr:hover {
   background-color: #f5f5f5;
 }
 
+.cmb {
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
+.cmb1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.cmb1:hover {
+  background-color: #555555;
+  color: white;
+}

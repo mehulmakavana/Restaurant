@@ -1,5 +1,13 @@
+h1 {
+  text-align: center;
+  background-color: #483d8b;
+  background-position-x: center;
+  padding: 20px;
+  color: white;
+  background-image: linear-gradient(180deg, black, rgb(88, 88, 92));
+}
+
 .manager-dashboard {
-  background: url('./manager-dash1.jpg') center center/cover no-repeat;
   height: 100vh;
   width: 100vw;
 }

@@ -1,63 +1,29 @@
-.ac{
+.ai {
   display: flex;
   justify-content: center;
 }
 
-.ac1 {
+.ai1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 50%;
- 
 }
-.ac1:hover {
+.ai1:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.ac2 {
+.ai2 {
   padding: 20px 20px;
 }
 
-.act {
-  width: 100%;
-  border-collapse: collapse;
-
-
-}
-
-.act td {
-  padding: 10px;
-  text-align: left;
-  background-color: rgb(120, 187, 187);
-  font-size: 25px;
-  min-width: 200px;
-  max-width: 400px;
-}
-
-.act1 {
-  width: 100%;
-}
-
-.act1 td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-  min-width: 200px;
-  max-width: 400px;
-}
-
-.act1 tr:hover {
-  background-color: #f5f5f5;
-}
-
-.acp {
+.add-ip {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  
 }
-.acp1{
+.add-ip1 {
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -67,16 +33,28 @@
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
-background-color: white;
+  background-color: white;
 }
 
-.mn {
+.upload-button1 {
   display: flex;
   justify-content: center;
-  font-size: 30px;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.ctn {
+.upload-btn1 {
+  height: 40px;
+  width: 90px;
+  background-color: rgb(105, 103, 103);
+  color: white;
+  border: 2px solid rgb(42, 42, 43);
+  font-size: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.category-get-head {
   margin-top: 70px;
   margin-bottom: 10px;
   color: black;
@@ -85,40 +63,71 @@ background-color: white;
   display: flex;
 }
 
-.am {
-  width: 100%;
- 
+.add-menu-btn {
+  border: black 1px solid;
+  color: black;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  background-color: white;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 5px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
-.am td {
+.add-menu-btn:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.il {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.itn {
+  margin-top: 70px;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+}
+
+.ait {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ait td {
   padding: 10px;
   text-align: left;
   background-color: rgb(120, 187, 187);
   font-size: 25px;
-  min-width: 200px;
-  max-width: 400px;
-
 }
 
-.am1 {
- width: 100%;
+.ait1 {
+  width: 100%;
 }
 
-.am1 td {
+.ait1 td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: left;
-  min-width: 200px;
-  max-width: 400px;
+}
 
-
+.ait1 tr:hover {
+  background-color: #f5f5f5;
 }
 
 .am1 tr:hover {
   background-color: #f5f5f5;
 }
 
-.ectb {
+.eitb {
   border: none;
   color: white;
   padding: 5px 5px;
@@ -131,62 +140,37 @@ background-color: white;
   cursor: pointer;
 }
 
-.ectb1 {
+.eitb1 {
   background-color: white;
   color: black;
   border: 2px solid #e7e7e7;
 }
 
-.ectb1:hover {
+.eitb1:hover {
   background-color: #555555;
   color: white;
 }
 
-
-.closeItem-set{
-  display:flex;
-  justify-content: flex-end;
-  margin-top: -20px;
-}
-
-.closeItem-btn:hover {
-  cursor: pointer;
-     background:darkgray;
-     color: black;
-}
-
-.closeItem-btn {
-  height: 30px;
-  width: 70px;
-  font: bold;
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border-radius: 7px;
-}
-
 .popup-item {
   position: fixed;
-width: 100%;
-height: 100%;
-background-color:rgba(109, 101, 101, 0.4);
-top: 0;
-left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(109, 101, 101, 0.4);
+  top: 0;
+  left: 0;
 }
 
-
-
-.category-manager{
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    margin: 10px;
-    font-weight: bold;
+.category-manager {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  margin: 10px;
+  font-weight: bold;
 }
 
-.category-name{
-    color: white;
+.category-name {
+  color: white;
 }
-
 
 .file {
   margin-top: 20px;
@@ -198,44 +182,25 @@ left: 0;
   display: flex;
 }
 
-.title {
-  margin-top: 50px;
+.ingredient-title {
+  margin-top: 30px;
   margin-bottom: 5px;
-  color: white;
   font-size: 20px;
   align-items: center;
   justify-content: center;
   display: flex;
 }
 
-.text1 {
+.ingredient-text1 {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.text2 {
+.ingredient-text2 {
   height: 30px;
   width: 200px;
-}
-
-.button1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
-
-.btn1 {
-  height: 40px;
-  width: 90px;
-  background-color: rgb(105, 103, 103);
-  color: white;
-  border: 2px solid rgb(42, 42, 43);
-  font-size: 20px;
-  margin-bottom: 30px;
-  cursor: pointer;
 }
 
 .container1 {
@@ -256,14 +221,10 @@ left: 0;
   font-weight: bold;
 }
 
-
-
-
 .card {
   height: 100vh;
   display: flex;
 }
-
 
 .image {
   margin-top: -100px;
@@ -306,18 +267,15 @@ left: 0;
   cursor: pointer;
 }
 
-
-
-.Item-file{
+.Item-file {
   margin-bottom: 10px;
-  color: #000000;
   align-items: center;
   text-align: center;
   justify-content: center;
-  display: flex; 
+  display: flex;
 }
 
-.Item-title{
+.Item-title {
   margin-bottom: 5px;
   color: rgb(255, 255, 255);
   font-size: 20px;
@@ -326,9 +284,6 @@ left: 0;
   justify-content: flex-start;
   display: flex;
 }
-
-
-
 
 h4 {
   font-size: 25px;
@@ -355,67 +310,39 @@ h4 {
   display: flex;
 }
 
-.text1 {
+.text-i1 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.text2 {
+.text-i2 {
   height: 30px;
   width: 200px;
-}
-
-.price {
-  color: rgb(255, 240, 240);
-}
-
-.offer1 {
-  color: rgb(255, 255, 255);
-}
-
-.offer2 {
-  color: rgb(255, 255, 255);
 }
 
 .description {
   color: rgb(255, 255, 255);
 }
 
-.price1 {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.price2 {
+.price-i2 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.price3 {
+.price-i3 {
   height: 30px;
   width: 200px;
 }
 
-.dsc {
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.dsc1 {
+.dsc-i1 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.dsc2 {
+.dsc-i2 {
   height: 50px;
   width: 300px;
 }
@@ -436,11 +363,10 @@ h4 {
 }
 
 .btn4:hover {
-background-color: black;
-color: white;  
-cursor: pointer;
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
-
 
 .card1 {
   height: 100vh;
@@ -495,16 +421,16 @@ cursor: pointer;
   cursor: pointer;
 }
 
-.Secondpopup-item{
+.Secondpopup-item {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
   top: 0;
   left: 0;
 }
 
-.SecondpopupItem_innerP{
+.SecondpopupItem_innerP {
   position: fixed;
   width: 80%;
   margin: 0 auto;
@@ -516,7 +442,7 @@ cursor: pointer;
   border: 1px solid #999;
 }
 
-.secondcloseItem-btn{
+.secondcloseItem-btn {
   height: 30px;
   width: 70px;
   font: bold;
@@ -525,16 +451,15 @@ cursor: pointer;
   border-radius: 7px;
 }
 
-.secondcloseItem-btn:hover{
-  
+.secondcloseItem-btn:hover {
   background: rgb(68, 65, 65);
   color: rgb(255, 255, 255);
 }
 
-
-.secondcloseItem-set{
-  display:flex;
+.secondcloseItem-set {
+  display: flex;
   justify-content: flex-end;
   margin-top: 10px;
   margin-right: 20px;
 }
+

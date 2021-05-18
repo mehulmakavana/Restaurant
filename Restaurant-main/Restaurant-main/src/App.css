@@ -4,3 +4,23 @@
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: #000000;
+  color: white;
+  border: 1px solid rgb(255, 249, 249);
+  border-spacing: 0px 50px;
+}
+
+
+td {
+width: 300px;
+text-align: center;
+border: 1px solid rgb(255, 249, 249);
+padding: 10px;
+}

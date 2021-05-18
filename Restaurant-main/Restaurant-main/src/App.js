@@ -15,6 +15,8 @@ import Complaints from './Pages/Complaints';
 import Revenue from './Pages/Revenue';
 import CreateTable from './Pages/CreateTable';
 import RDetails from './Pages/RDetails';
+import Payment from './Pages/Payment';
+import Ingredients from './Pages/Ingredients';
 
 
 
@@ -27,6 +29,7 @@ function App() {
       <Switch>
         <Route path='/' exact component={Dashboard} />
         <Route path='/Category' component={Category} />
+        <Route path='/Ingredients' component={Ingredients} />
         <Route path='/CreateTable' component={CreateTable} />
         <Route path='/OrdersHistory' component={OrdersHistory} />
         <Route path='/ViewManager/ViewCook' component={ViewCook} />
@@ -36,6 +39,7 @@ function App() {
         <Route path='/Ratings' component={Ratings} />
         <Route path='/AddStaff' component={AddStaff} />
         <Route path='/Complaints' component={Complaints} />
+        <Route path='/Payment' component={Payment} />
         <Route path='/Revenue' component={Revenue} />
         <Route path='/RDetails' component={RDetails} />
 

@@ -25,6 +25,13 @@ export const SidebarData = [
   },
 
   {
+    title: "Ingredients",
+    path: "/Ingredients",
+    icon: <IoIcons.IoIosPaper />,
+    cName: "nav-text",
+  },
+
+  {
     title: "Create Table",
     path: "/CreateTable",
     icon: <RiTableFill />,
@@ -90,6 +97,13 @@ export const SidebarData = [
   {
     title: "Complaints",
     path: "/Complaints",
+    icon: <RiInboxArchiveFill />,
+    cName: "nav-text",
+  },
+
+  {
+    title: "Payments",
+    path: "/Payment",
     icon: <RiInboxArchiveFill />,
     cName: "nav-text",
   },
