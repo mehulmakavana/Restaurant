@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios';
-import './Ingredients.scss';
+import React, { Component } from "react";
+import axios from "axios";
+import "./Ingredients.scss";
 
 class Ingredients extends React.Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class Ingredients extends React.Component {
     formdata.append("description", description);
 
     axios({
-      url: "http://localhost:8020/ingredients/addingredient/" ,
+      url: "http://localhost:8020/ingredients/addingredient/",
       method: "POST",
       headers: {
         authorization: `your token`,
@@ -103,129 +103,129 @@ class Ingredients extends React.Component {
 
   render() {
     return (
+      <div>
         <div>
+          <h1>Add Ingredients</h1>
           <div>
-            <h1>Add Ingredients</h1>
-            <div>
-              <div className="ai">
-                <div className="ai1">
-                  <div className="ai2">
+            <div className="ai">
+              <div className="ai1">
+                <div className="ai2">
                   <div className="ingredient-title">Image</div>
-                    <div className="ingredient-text1">
-                      <input
-                        type="file"
-                        name="file"
-                        onChange={(e) => this.handleItemFile(e)}
-                      />
-                    </div>
+                  <div className="ingredient-text1">
+                    <input
+                      type="file"
+                      name="file"
+                      onChange={(e) => this.handleItemFile(e)}
+                    />
+                  </div>
 
-                    <div className="ingredient-title">Ingrediant Name</div>
-                    <div className="ingredient-text1">
-                      <input
-                        className="ingredient-text2"
-                        type="text"
-                        name="name"
-                        onChange={(e) => this.handleItemName(e)}
-                      />
-                    </div>
+                  <div className="ingredient-title">Ingrediant Name</div>
+                  <div className="ingredient-text1">
+                    <input
+                      className="ingredient-text2"
+                      type="text"
+                      name="name"
+                      onChange={(e) => this.handleItemName(e)}
+                    />
+                  </div>
 
-                    <div className="ingredient-title">Price (RS)</div>
-                    <div className="price-i2">
-                      <input
-                        className="price-i3"
-                        type="number"
-                        name="originalPrice"
-                        min="1"
-                        onChange={(e) => this.handleItemPrice(e)}
-                      />
-                    </div>
+                  <div className="ingredient-title">Price (RS)</div>
+                  <div className="price-i2">
+                    <input
+                      className="price-i3"
+                      type="number"
+                      name="originalPrice"
+                      min="1"
+                      onChange={(e) => this.handleItemPrice(e)}
+                    />
+                  </div>
 
-                    <div className="ingredient-title">Description</div>
-                    <div className="dsc-i1">
-                      <textarea
-                        className="dsc-i2"
-                        type="text"
-                        name="description"
-                        onChange={(e) => this.handleItemDescription(e)}
-                      />
-                    </div>
+                  <div className="ingredient-title">Description</div>
+                  <div className="dsc-i1">
+                    <textarea
+                      className="dsc-i2"
+                      type="text"
+                      name="description"
+                      onChange={(e) => this.handleItemDescription(e)}
+                    />
+                  </div>
 
-                    <div className="upload-button1">
-                      <button
-                        className="upload-btn1"
-                        onClick={(e) => this.handleItemUpload(e)}
-                      >
-                        Upload
-                      </button>
-                    </div>
+                  <div className="upload-button1">
+                    <button
+                      className="upload-btn1"
+                      onClick={(e) => this.handleItemUpload(e)}
+                    >
+                      Upload
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div>
+          <label className="itn"> Ingredients</label>
 
           <div>
-            <label className="itn"> Ingredients</label>
+            <table className="ait">
+              <td>Title</td>
+              <td>Image</td>
+              <td>Price</td>
+              <td>Description</td>
+              <td>Action</td>
+            </table>
 
-            <div>
-              <table className="ait">
-                <td>Title</td>
-                <td>Image</td>
-                <td>Price</td>
-                <td>Description</td>
-                <td>Action</td>
-              </table>
-
-              {this.state.people.map((data) => (
-                <div key={data._id}>
+            {this.state.people.map((data) => (
+              <div key={data._id}>
+                <div>
                   <div>
-                    <div>
-                      <table className="ait1">
-                        <tr>
-                          <td> {data.IngredientName}</td>
-                          <td>
-                            <img
-                              height="80px"
-                              width="80px"
-                              className="img"
-                              src={data.imageUrl}
-                            />
-                          </td>
+                    <table className="ait1">
+                      <tr>
+                        <td> {data.IngredientName}</td>
+                        <td>
+                          <img
+                            height="80px"
+                            width="80px"
+                            className="img"
+                            src={data.imageUrl}
+                          />
+                        </td>
 
-                          <td>{data.price} ₹</td>
-                          <td>{data.description}</td>
+                        <td>{data.price} ₹</td>
+                        <td>{data.description}</td>
 
-                          <td>
-                            <button
-                              className="eitb eitb1"
-                              onClick={() => this.toggleSecondPopup(data)}
-                            >
-                              Edit Item
-                            </button>
+                        <td>
+                          <button
+                            className="eitb eitb1"
+                            onClick={() => this.toggleSecondPopup(data)}
+                          >
+                            Edit Item
+                          </button>
 
-                            <button
-                              className="eitb eitb1"
-                              onClick={() => this.delete(data._id)}
-                              variant="danger"
-                            >
-                              Delete
-                            </button>
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-
-                    {this.state.showSecondPopup ? (
-                      <SecondPopup
-                        id1={this.state.activeId1}
-                        closeSecondPopup={() => this.toggleSecondPopup(data)}
-                      />
-                    ) : null}
+                          <button
+                            className="eitb eitb1"
+                            onClick={() => this.delete(data._id)}
+                            variant="danger"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
                   </div>
+
+                  {this.state.showSecondPopup ? (
+                    <SecondPopup
+                      id1={this.state.activeId1}
+                      closeSecondPopup={() => this.toggleSecondPopup(data)}
+                    />
+                  ) : null}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+        </div>
       </div>
     );
   }
@@ -317,70 +317,67 @@ class SecondPopup extends React.Component {
             </button>
           </div>
 
-
-
           <div>
-    <label className="il">Edit Item</label>
-    <div>
-      <div className="ai">
-        <div className="ai1">
-          <div className="ai2">
-          <div className="ingredient-title">Image</div>
-            <div className="ingredient-text1">
-              <input
-                type="file"
-                name="file"
-                onChange={(e) => this.EditItemFile(e)}
-                />
-            </div>
+            <label className="il">Edit Item</label>
+            <div>
+              <div className="ai">
+                <div className="ai1">
+                  <div className="ai2">
+                    <div className="ingredient-title">Image</div>
+                    <div className="ingredient-text1">
+                      <input
+                        type="file"
+                        name="file"
+                        onChange={(e) => this.EditItemFile(e)}
+                      />
+                    </div>
 
-            <div className="ingredient-title">Ingredient-Title</div>
-            <div className="text-i1">
-              <input
-                className="text-i2"
-                type="text"
-                name="name"
-                onChange={(e) => this.EditItemName(e)}
-                />
-            </div>
+                    <div className="ingredient-title">Ingredient-Title</div>
+                    <div className="text-i1">
+                      <input
+                        className="text-i2"
+                        type="text"
+                        name="name"
+                        onChange={(e) => this.EditItemName(e)}
+                      />
+                    </div>
 
-            <div className="ingredient-title">Price (RS)</div>
-            <div className="price-i2">
-              <input
-                className="price-i3"
-                type="number"
-                name="originalPrice"
-                min="1"
-                onChange={(e) => this.EditItemPrice(e)}
-                />
-            </div>
+                    <div className="ingredient-title">Price (RS)</div>
+                    <div className="price-i2">
+                      <input
+                        className="price-i3"
+                        type="number"
+                        name="originalPrice"
+                        min="1"
+                        onChange={(e) => this.EditItemPrice(e)}
+                      />
+                    </div>
 
-            <div className="ingredient-title">Description</div>
-            <div className="dsc-i1">
-              <textarea
-                className="dsc-i2"
-                type="text"
-                name="description"
-                onChange={(e) => this.EditItemDescription(e)}
-                />
-            </div>
+                    <div className="ingredient-title">Description</div>
+                    <div className="dsc-i1">
+                      <textarea
+                        className="dsc-i2"
+                        type="text"
+                        name="description"
+                        onChange={(e) => this.EditItemDescription(e)}
+                      />
+                    </div>
 
-            <div className="upload-button1">
-              <button
-                className="upload-btn1"
-                onClick={(e) => this.handleItemEdit(e)}>
-                Upload
-              </button>
+                    <div className="upload-button1">
+                      <button
+                        className="upload-btn1"
+                        onClick={(e) => this.handleItemEdit(e)}
+                      >
+                        Upload
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
- 
-</div>
-</div>
-);
-}
+    );
+  }
 }

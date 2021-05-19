@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import "./Staff.scss";
 
 class Popup extends React.Component {
-
   constructor(props) {
-
     super(props);
     this.state = {
-
       name: "",
       email: "",
       phone: "",
-
     };
   }
 
@@ -56,13 +52,11 @@ class Popup extends React.Component {
 
   render() {
     return (
-      <div className="popup">
-
-        <div className="popup_inner">
-
+      <div className="aspp">
+        <div className="aspp1">
           <label className="label">Edit Staff Details</label>
 
-            <div className="dtl">
+          <div className="dtl">
             <div className="title">Name</div>
             <div className="text1">
               <input
@@ -79,7 +73,6 @@ class Popup extends React.Component {
                 className="email2"
                 type="text"
                 name="email"
-               
                 onChange={(e) => this.handleEmail(e)}
               />
             </div>
@@ -100,12 +93,14 @@ class Popup extends React.Component {
               </button>
             </div>
 
-        <div className="popbtn2">
-            <button className="popbtn3" onClick={this.props.closePopup}>X</button>
+            <div className="popbtn2">
+              <button className="popbtn3" onClick={this.props.closePopup}>
+                X
+              </button>
             </div>
           </div>
-          </div>
         </div>
+      </div>
     );
   }
 }
@@ -171,31 +166,33 @@ class viewManager extends Component {
       <div>
         <h1>All Manager</h1>
         <div>
-        <table className="wt1">
-         
-         <td>Name</td>
-         <td>Email</td>
-         <td>Phone</td>
-         <td>Time</td>
-         <td>Action</td>
-      
-       </table>
+          <table className="wt1">
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Time</td>
+            <td>Action</td>
+          </table>
           {this.state.people.map((manager) => (
             <div key={manager._id}>
               <div>
                 <div>
-                <table className="wt">
+                  <table className="wt">
                     <tr>
                       <td> {manager.name}</td>
                       <td> {manager.email}</td>
                       <td>{manager.phone}</td>
                       <td>{manager.created_At}</td>
                       <td>
-                        <button className="sb sb1" onClick={() => this.togglePopup(manager)}>
+                        <button
+                          className="sb sb1"
+                          onClick={() => this.togglePopup(manager)}
+                        >
                           Edit item
                         </button>
 
-                        <button className="sb sb1"
+                        <button
+                          className="sb sb1"
                           onClick={() => this.delete(manager._id)}
                           variant="danger"
                         >
@@ -203,8 +200,7 @@ class viewManager extends Component {
                         </button>
                       </td>
                     </tr>
-                    </table>
-                
+                  </table>
                 </div>
 
                 {this.state.showPopup ? (
@@ -216,7 +212,6 @@ class viewManager extends Component {
               </div>
             </div>
           ))}
-        
         </div>
       </div>
     );

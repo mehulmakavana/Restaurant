@@ -52,9 +52,9 @@ class Popup extends React.Component {
 
   render() {
     return (
-      <div className="popup">
+      <div className="aspp">
 
-        <div className="popup_inner">
+        <div className="aspp1">
 
           <label className="label">Edit Details</label>
 

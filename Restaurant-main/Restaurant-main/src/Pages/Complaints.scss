@@ -7,18 +7,16 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .popup_inner-complaints {
-  position: absolute;
   left: 25%;
   right: 25%;
   top: 25%;
   bottom: 25%;
-  margin: auto;
-  height: 50%;
-  width: 40%;
+  position: absolute;
+  width: 50%;
+  height: 70%;
   background-image: linear-gradient(
     180deg,
     #ffe1aa 0,
@@ -31,10 +29,27 @@
   );
 }
 
-.pop-complaint {
+
+.edv {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.edv1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edv2 {
   height: 30px;
-  width: 50px;
-  font-weight: bold;
+  width: 200px;
 }
 
 .popbtn2-complaints {

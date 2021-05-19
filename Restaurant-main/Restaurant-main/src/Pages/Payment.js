@@ -7,7 +7,7 @@ class Payment extends Component {
     this.state = {
       phone: "",
       table: "",
-      result: "",
+      message: "",
       loading: true,
     };
   }
@@ -23,31 +23,27 @@ class Payment extends Component {
   }
 
   handleUpload(e) {
-    let phone = this.state.phone;
-    let table = this.state.table;
-    let formdata = new FormData();
+      let phone = this.state.phone;
+      let table = this.state.table;
+      let formdata = new FormData();
 
-    formdata.append("phone", phone);
-    formdata.append("table", table);
+      formdata.append("phone", phone);
+      formdata.append("table", table);
 
-    axios({
-      url: `http://localhost:8020/book/checkout`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      axios({
+        url: `http://localhost:8020/book/checkout`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      data: formdata,
-    })
-      .then((res) => res.data)
-      .then((data) => {
-        const { result } = data;
-        this.setState({ result });
-      });
-  }
+        data: formdata,
+      })
+      .then(response => response.json())
+      .then(data => this.setState({form:data.message}));
+    }
 
   render() {
-
     return (
       <div>
         <h1>Payment</h1>
@@ -83,9 +79,7 @@ class Payment extends Component {
             </div>
           </div>
         </div>
-        {this.state.result}
-        
-          
+        {this.state.form}
       </div>
     );
   }

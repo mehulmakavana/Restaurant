@@ -49,14 +49,14 @@ class Popup extends React.Component {
           <label className="label-discount">Set Discount</label>
 
             <div className="dtl">
-            <div className="title-cook">Enter Discount Value</div>
-            <div className="text1-cook">
+            <div className="edv">Enter Discount Value</div>
+            <div className="edv1">
               <input
-                className="text2-cook"
+                className="edv2"
                 type="text"
                 name="name"
                 onChange={(e) => this.handleDiscount(e)}
-              />
+              />0
             </div>
 
             <div className="popbtn-update">

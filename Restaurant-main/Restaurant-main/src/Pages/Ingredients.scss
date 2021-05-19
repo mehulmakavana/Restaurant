@@ -107,6 +107,8 @@
   text-align: left;
   background-color: rgb(120, 187, 187);
   font-size: 25px;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 .ait1 {
@@ -117,6 +119,8 @@
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 .ait1 tr:hover {
