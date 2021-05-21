@@ -88,7 +88,8 @@
   padding: 10px;
   text-align: left;
   font-size: 25px;
-
+  min-width: 200px;
+  max-width: 400px;
   background-color: rgb(221, 223, 226);
 }
 
@@ -101,6 +102,8 @@
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: left;
+  min-width: 200px;
+  max-width: 400px;
 }
 
 .cpt1 tr:hover {

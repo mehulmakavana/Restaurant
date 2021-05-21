@@ -34,8 +34,8 @@ export class Dashboard extends Component {
                 <div>{this.state.category}</div>
               </h2>
               <h3>
-                {" "}
-                <FaClipboardList style={{ fontSize: 40 }} />{" "}
+            
+                <FaClipboardList style={{ fontSize: 40 }} />
               </h3>
             </Link>
           </div>
@@ -74,8 +74,8 @@ export class Dashboard1 extends Component {
               </h2>
 
               <h3>
-                {" "}
-                <HiShoppingCart style={{ fontSize: 40 }} />{" "}
+             
+                <HiShoppingCart style={{ fontSize: 40 }} />
               </h3>
             </Link>
           </div>
@@ -113,8 +113,8 @@ export class Dashboard2 extends Component {
               </h2>
 
               <h3>
-                {" "}
-                <FaClipboardList style={{ fontSize: 40 }} />{" "}
+             
+                <FaClipboardList style={{ fontSize: 40 }} />
               </h3>
             </Link>
           </div>
@@ -136,7 +136,7 @@ export class Dashboard3 extends Component {
     const url = "http://localhost:8020/feedback/average";
     const response = await fetch(url);
     const data = await response.json();
-    this.setState({ rating: data.rating, loading: false });
+    this.setState({ rating: data.rating, loading: false,  });
     this.searchArray = data;
   }
 
@@ -160,8 +160,8 @@ export class Dashboard3 extends Component {
                 </h2>
 
                 <h3>
-                  {" "}
-                  <FaStar style={{ fontSize: 40 }} />{" "}
+               
+                  <FaStar style={{ fontSize: 40 }} />
                 </h3>
               </Link>
             </div>

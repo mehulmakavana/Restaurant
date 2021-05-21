@@ -41,29 +41,25 @@ export class OrdersHistory extends Component {
             <td>
               <div className="oht">Total(Rs) </div>
             </td>
-            <td>Action</td>
           </table>
           {this.state.people.map((order) => (
             <div key={order._id}>
               <div>
                 <div>
-                  <table className="ot1">
+                  <table
+                    className="ot1"
+                    onClick={() => this.togglePopup(order)}
+                  >
                     <tr>
                       <td> {order.name}</td>
                       <td>{order.paymentMethod}</td>
                       <td> {order.createdAt}</td>
 
                       <td>
-                        <div className="oht"> {order.grandTotal} </div>
-                      </td>
-
-                      <td>
-                        <button
-                          className="sb sb1"
-                          onClick={() => this.togglePopup(order)}
-                        >
-                          View Order
-                        </button>
+                        <div className="oht">
+                         
+                          {order.grandTotal.toFixed()}
+                        </div>
                       </td>
                     </tr>
                   </table>
@@ -92,6 +88,7 @@ class Popup extends React.Component {
     this.state = {
       loading: true,
       order: [],
+      total:""
     };
   }
 
@@ -102,21 +99,19 @@ class Popup extends React.Component {
         method: "GET",
       });
       const data = await response.json();
-      this.setState({ order: data.order.items, loading: false });
+      this.setState({ order: data.order.items, loading: false, total: data.order.grandTotal});
       this.searchArray = data;
     } catch (err) {}
   }
 
   render() {
-    
     return (
-        
       <div className="ohp">
-
         <div className="ohp1">
-
           <div className="ohpb">
-            <button className="ohpb1" onClick={this.props.closePopup}>X</button>
+            <button className="ohpb1" onClick={this.props.closePopup}>
+              X
+            </button>
           </div>
 
           <label className="odn">Order Details</label>
@@ -124,8 +119,16 @@ class Popup extends React.Component {
           <table className="ot">
             <td>Name</td>
             <td>Quantity</td>
-            <td><div className="oht">Price(Rs)</div></td>
-            <td><div className="oht">Total(Rs)</div></td>
+            <td>
+              <div className="oht">Price(Rs)</div>
+            </td>
+            <td>
+              <div className="oht">OfferPrice(Rs)</div>
+            </td>
+
+            <td>
+              <div className="oht">Total(Rs)</div>
+            </td>
           </table>
 
           {this.state.order.map((order1) => (
@@ -134,12 +137,21 @@ class Popup extends React.Component {
                 <tr>
                   <td>{order1.product_id.name}</td>
                   <td>{order1.qty}</td>
-                  <td><div className="oht">{order1.productPrice}</div></td>
-                  <td><div className="oht">{order1.total}</div> </td>
+                  <td>
+                    <div className="oht">{order1.productPrice}</div>
+                  </td>
+                  <td>
+                    <div className="oht">{order1.product_id.offerPrice}</div>
+                  </td>
+
+                  <td>
+                    <div className="oht">{order1.total}</div>{" "}
+                  </td>
                 </tr>
               </table>
             </div>
           ))}
+          <div className="ohgt">Grand Total :- {this.state.total} Rs.</div>
         </div>
       </div>
     );

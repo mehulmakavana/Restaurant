@@ -63,6 +63,7 @@ class Revenue extends Component {
                 <input
                   type="text"
                   className="sd2"
+                  placeholder="YYYY/MM/DD"
                   name="startdate"
                   onChange={(e) => this.handleStartDate(e)}
                 />
@@ -73,6 +74,7 @@ class Revenue extends Component {
                 <input
                   type="text"
                   className="ed2"
+                  placeholder="YYYY/MM/DD"
                   name="enddate"
                   onChange={(e) => this.handleEndDate(e)}
                 />
@@ -92,14 +94,14 @@ class Revenue extends Component {
               <div className="rnv1">
                 <div className="rnv2">
                   <table className="rnt">
-                    <td>Id</td>
+                   
                     <td>Count</td>
                     <td><div className="rns">Sum(Rs)</div></td>
                   </table>
                   <div>
                   <table className="rnt1">
                     <tr>
-                    <td>{item._id}</td>
+                   
 
                     <td>{item.COUNT}</td>
                     <td><div className="rns">{item.SUM}</div></td>

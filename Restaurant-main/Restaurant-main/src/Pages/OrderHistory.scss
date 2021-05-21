@@ -17,6 +17,7 @@
 .ot1 {
   width: 100%;
   border-collapse: collapse;
+  cursor: pointer;
 }
 
 
@@ -35,20 +36,6 @@
 .oht {
   text-align: right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .odn {
   display: flex;
@@ -101,7 +88,8 @@
   width: 30px;
 }
 
-.oht{
+
+.ohgt {
+  margin-top: 20px;
   text-align: right;
 }
-
