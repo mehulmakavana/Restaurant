@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./OrderHistory.scss";
 
+
 export class OrdersHistory extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,9 @@ export class OrdersHistory extends Component {
       showPopup: false,
       loading: true,
     };
+
     this.togglePopup = this.togglePopup.bind(this);
+
   }
 
   async componentDidMount() {
@@ -28,6 +31,7 @@ export class OrdersHistory extends Component {
     });
   }
 
+  
   render() {
     return (
       <div>
@@ -48,7 +52,7 @@ export class OrdersHistory extends Component {
                 <div>
                   <table
                     className="ot1"
-                    onClick={() => this.togglePopup(order)}
+                     onClick={() => this.togglePopup(order)}
                   >
                     <tr>
                       <td> {order.name}</td>
@@ -61,8 +65,12 @@ export class OrdersHistory extends Component {
                           {order.grandTotal.toFixed()}
                         </div>
                       </td>
+                  
+
                     </tr>
+
                   </table>
+                  
 
                   {this.state.showPopup ? (
                     <Popup
@@ -88,7 +96,8 @@ class Popup extends React.Component {
     this.state = {
       loading: true,
       order: [],
-      total:""
+      total:"",
+      time:""
     };
   }
 
@@ -103,6 +112,8 @@ class Popup extends React.Component {
       this.searchArray = data;
     } catch (err) {}
   }
+
+
 
   render() {
     return (

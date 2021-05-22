@@ -48,23 +48,24 @@ class Popup extends React.Component {
             <div className="edv1">
               <input
                 className="edv2"
-                type="text"
+                type="number"
+                min="1"
                 name="name"
                 onChange={(e) => this.handleDiscount(e)}
               />
             </div>
 
-            <div className="popbtn-update">
+            <div className="cmpu">
               <button
-                className="popbtn1-update"
+                className="cmpu1"
                 onClick={(e) => this.updateOrder(e)}
               >
                 Update
               </button>
             </div>
 
-            <div className="popbtn2-complaints">
-              <button className="pop-complaint" onClick={this.props.closePopup}>
+            <div className="cmpb">
+              <button className="cmpb1" onClick={this.props.closePopup}>
                 X
               </button>
             </div>
@@ -114,7 +115,7 @@ class Popup1 extends React.Component {
     return (
       <div className="popup_complaints">
         <div className="popup_inner-complaints">
-          <label className="label-discount">Set Discount</label>
+          <label className="label-discount">Reply</label>
 
           <div className="dtl">
             <div className="edv">Enter The Message</div>
@@ -127,17 +128,20 @@ class Popup1 extends React.Component {
               />
             </div>
 
-            <div className="popbtn-update">
+            <div className="cmpu">
               <button
-                className="popbtn1-update"
+                className="cmpu1"
                 onClick={(e) => this.handleSubmit(e)}
               >
                 Submit
               </button>
             </div>
 
-            <div className="popbtn2-complaints">
-              <button className="pop-complaint" onClick={this.props.closePopup1}>
+            <div className="cmpb">
+              <button
+                className="cmpb1"
+                onClick={this.props.closePopup1}
+              >
                 X
               </button>
             </div>
@@ -158,7 +162,6 @@ class Complaints extends Component {
     };
     this.togglePopup = this.togglePopup.bind(this);
     this.togglePopup1 = this.togglePopup1.bind(this);
-
   }
 
   togglePopup(complaint) {
@@ -170,7 +173,7 @@ class Complaints extends Component {
 
   togglePopup1(complaint) {
     this.setState({
-      showPopup: !this.state.showPopup,
+      showPopup1: !this.state.showPopup1,
       id: complaint._id,
     });
   }
@@ -244,17 +247,15 @@ class Complaints extends Component {
                     closePopup={() => this.togglePopup(complaint)}
                   />
                 ) : null}
-                 {this.state.showPopup ? (
-            <Popup1
-              _id={this.state.id}
-              closePopup1={() => this.togglePopup1(complaint)}
-            />
-          ) : null}
+                {this.state.showPopup1 ? (
+                  <Popup1
+                    _id={this.state.id}
+                    closePopup1={() => this.togglePopup1(complaint)}
+                  />
+                ) : null}
               </div>
             </div>
           ))}
-
-         
         </div>
       </div>
     );

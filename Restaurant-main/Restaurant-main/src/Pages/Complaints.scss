@@ -15,8 +15,8 @@
   top: 25%;
   bottom: 25%;
   position: absolute;
-  width: 50%;
-  height: 70%;
+  width: 40%;
+  height: 40%;
   background-image: linear-gradient(
     180deg,
     #ffe1aa 0,
@@ -52,13 +52,21 @@
   width: 200px;
 }
 
-.popbtn2-complaints {
+.cmpb{
+
   display: flex;
   float: right;
-  margin-top: -270px;
+  margin-top: -213px;
 }
 
-.popbtn-update {
+.cmpb1 {
+  height: 25px;
+  width: 30px;
+}
+
+
+
+.cmpu {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -66,7 +74,7 @@
 }
 
 
-.popbtn1-update {
+.cmpu1 {
   height: 35px;
   width: 80px;
   font-weight: bold;
