@@ -95,8 +95,8 @@ class Revenue extends Component {
                 <div className="rnv2">
                   <table className="rnt">
                    
-                    <td>Count</td>
-                    <td><div className="rns">Sum(Rs)</div></td>
+                    <td>Total Order</td>
+                    <td><div className="rns">Total Revenue</div></td>
                   </table>
                   <div>
                   <table className="rnt1">

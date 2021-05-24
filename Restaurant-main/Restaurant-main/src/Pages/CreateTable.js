@@ -86,6 +86,8 @@ class Popup extends React.Component {
   }
 }
 
+
+
 export class CreateTable extends Component {
   constructor(props) {
     super(props);
@@ -97,6 +99,7 @@ export class CreateTable extends Component {
       showPopup: false,
     };
     this.togglePopup = this.togglePopup.bind(this);
+
   }
 
   togglePopup(data) {
@@ -105,6 +108,8 @@ export class CreateTable extends Component {
       id: data._id,
     });
   }
+
+
 
   async componentDidMount() {
     const url = "http://localhost:8020/book/tables";

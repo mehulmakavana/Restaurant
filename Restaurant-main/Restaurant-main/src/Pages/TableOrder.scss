@@ -1,123 +1,119 @@
 .pot {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .pot td {
-    padding: 1px;
-    text-align: left;
-    background-color: rgb(221, 223, 226);
-    font-size: 25px;
-  }
-  
-  .pot1 {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .pot1 td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .pot1 tr:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .pp {
-    padding: 10px;
-    text-align: right;
-  }
-  
-  .poc {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 80%;
-    text-align: center;
-  }
-  
-  .poc:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .poc1 {
-    padding: 20px 20px;
-  }
-  
-  .pdoc {
-    margin-top: 1px;
-    justify-content: center;
-    display: flex;
-  }
-  
-  .pon1 {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .pon {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    font-weight: bold;
-  
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  .to{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .to1 {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 50%;
-   
-  }
-  .to1:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .to2 {
-    padding: 20px 20px;
-  }
+.pot td {
+  padding: 1px;
+  text-align: left;
+  background-color: rgb(221, 223, 226);
+  font-size: 25px;
+}
 
-  .ton {
-    margin-top: 30px;
-    margin-bottom: 5px;
-    color: black;
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
-            
-  .ton1 {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .ton2 {
-    height: 30px;
-    width: 200px;
-  }
+.pot1 {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  
-  .tob {
-    margin-top: 50px;
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .tob1 {
-    height: 30px;
-    width: 70px;
-    cursor: pointer;
-  }
+.pot1 td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.pot1 tr:hover {
+  background-color: #f5f5f5;
+}
+
+.pp {
+  padding: 10px;
+  text-align: right;
+}
+
+.poc {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 80%;
+  text-align: center;
+}
+
+.poc:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.poc1 {
+  padding: 20px 20px;
+}
+
+.pdoc {
+  margin-top: 1px;
+  justify-content: center;
+  display: flex;
+}
+
+.pon1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.pon {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.to {
+  display: flex;
+  justify-content: center;
+}
+
+.to1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 50%;
+}
+.to1:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.to2 {
+  padding: 20px 20px;
+}
+
+.ton {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.ton1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ton2 {
+  height: 30px;
+  width: 200px;
+}
+
+.tob {
+  margin-top: 50px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.tob1 {
+  height: 30px;
+  width: 70px;
+  cursor: pointer;
+}
