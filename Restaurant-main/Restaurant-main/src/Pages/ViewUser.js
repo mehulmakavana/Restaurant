@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './Staff.scss'
+import './ViewStaff.scss'
 
 export class viewUser extends Component {
   constructor(props) {

@@ -46,6 +46,13 @@ export const SidebarData = [
   },
 
   {
+    title: "Restaurants Offer",
+    path: "/Offer",
+    icon: <GiReceiveMoney />,
+    cName: "nav-text",
+  },
+
+  {
     title: "Orders History",
     path: "/OrdersHistory",
     icon: <FaIcons.FaCartPlus />,

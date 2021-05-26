@@ -15,6 +15,7 @@ import Complaints from './Pages/Complaints';
 import Revenue from './Pages/Revenue';
 import CreateTable from './Pages/CreateTable';
 import RDetails from './Pages/RDetails';
+import Offer from './Pages/Offer';
 import Payment from './Pages/Payment';
 import Ingredients from './Pages/Ingredients';
 import TableOrder from './Pages/TableOrder';
@@ -43,6 +44,8 @@ function App() {
         <Route path='/Payment' component={Payment} />
         <Route path='/Revenue' component={Revenue} />
         <Route path='/RDetails' component={RDetails} />
+      
+        <Route path='/Offer' component={Offer} />
         <Route path='/TableOrder' component={TableOrder} />
 
 

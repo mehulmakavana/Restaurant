@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./Table.scss";
+import "./CreateTable.scss";
 
 class Popup extends React.Component {
   constructor(props) {
