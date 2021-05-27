@@ -87,7 +87,3 @@ class Payment extends Component {
 
 export default Payment;
 
-
-
-
-
