@@ -213,7 +213,7 @@ class Complaints extends Component {
             <td>Date</td>
             <td>Action</td>
           </table>
-          {this.state.complaints.map((complaint) => (
+          {this.state.complaints.filter(complaint=> complaint.status === "Done").map((complaint) => (
             <div key={complaint._id}>
               <div>
                 <div>
@@ -221,7 +221,7 @@ class Complaints extends Component {
                     <tr>
                       <td> {complaint.title}</td>
                       <td> {complaint.message}</td>
-                      <td>{complaint.created_At}</td>
+                      <td>{complaint.orderId.createdAt}</td>
                       <td>
                         <button
                           className="cmb cmb1"

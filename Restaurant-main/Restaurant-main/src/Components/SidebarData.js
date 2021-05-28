@@ -39,13 +39,6 @@ export const SidebarData = [
   },
 
   {
-    title: "Table Wise Order",
-    path: "/TableOrder",
-    icon: <FaIcons.FaCartPlus />,
-    cName: "nav-text",
-  },
-
-  {
     title: "Restaurants Offer",
     path: "/Offer",
     icon: <GiReceiveMoney />,

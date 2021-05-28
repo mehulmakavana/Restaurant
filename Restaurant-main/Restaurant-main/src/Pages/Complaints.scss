@@ -7,14 +7,14 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .popup_inner-complaints {
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
-  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  position: fixed;
   width: 40%;
   height: 40%;
   background-image: linear-gradient(
@@ -28,7 +28,6 @@
     #c2968d 100%
   );
 }
-
 
 .edv {
   margin-top: 30px;
@@ -52,8 +51,7 @@
   width: 200px;
 }
 
-.cmpb{
-
+.cmpb {
   display: flex;
   float: right;
   margin-top: -213px;
@@ -64,15 +62,12 @@
   width: 30px;
 }
 
-
-
 .cmpu {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .cmpu1 {
   height: 35px;

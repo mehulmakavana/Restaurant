@@ -502,7 +502,7 @@ class SecondPopup extends React.Component {
     }).then(
       (res) => {
         this.setState({ showSecondPopup: !this.state.showSecondPopup });
-        this.componentDidMount();
+       
 
       },
       (err) => {}
