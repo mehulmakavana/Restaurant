@@ -113,3 +113,6 @@ export class RDetail extends Component {
 }
 
 export default RDetail;
+
+
+

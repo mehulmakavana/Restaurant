@@ -56,10 +56,7 @@ class Popup extends React.Component {
             </div>
 
             <div className="cmpu">
-              <button
-                className="cmpu1"
-                onClick={(e) => this.updateOrder(e)}
-              >
+              <button className="cmpu1" onClick={(e) => this.updateOrder(e)}>
                 Update
               </button>
             </div>
@@ -129,19 +126,13 @@ class Popup1 extends React.Component {
             </div>
 
             <div className="cmpu">
-              <button
-                className="cmpu1"
-                onClick={(e) => this.handleSubmit(e)}
-              >
+              <button className="cmpu1" onClick={(e) => this.handleSubmit(e)}>
                 Submit
               </button>
             </div>
 
             <div className="cmpb">
-              <button
-                className="cmpb1"
-                onClick={this.props.closePopup1}
-              >
+              <button className="cmpb1" onClick={this.props.closePopup1}>
                 X
               </button>
             </div>
@@ -206,6 +197,9 @@ class Complaints extends Component {
     return (
       <div>
         <h1>All Complaints</h1>
+
+<label className="lc">Live Complaints</label>
+
         <div>
           <table className="cpt">
             <td>Title</td>
@@ -213,49 +207,108 @@ class Complaints extends Component {
             <td>Date</td>
             <td>Action</td>
           </table>
-          {this.state.complaints.filter(complaint=> complaint.status === "Done").map((complaint) => (
-            <div key={complaint._id}>
-              <div>
+          {this.state.complaints
+            .filter((complaint) => complaint.status === "Pending")
+            .map((complaint) => (
+              <div key={complaint._id}>
                 <div>
-                  <table className="cpt1">
-                    <tr>
-                      <td> {complaint.title}</td>
-                      <td> {complaint.message}</td>
-                      <td>{complaint.orderId.createdAt}</td>
-                      <td>
-                        <button
-                          className="cmb cmb1"
-                          onClick={() => this.togglePopup(complaint)}
-                        >
-                          Discount
-                        </button>
+                  <div>
+                    <table className="cpt1">
+                      <tr>
+                        <td> {complaint.title}</td>
+                        <td> {complaint.message}</td>
+                        <td>{complaint.orderId.createdAt}</td>
+                        <td>
+                          <button
+                            className="cmb cmb1"
+                            onClick={() => this.togglePopup(complaint)}
+                          >
+                            Discount
+                          </button>
 
-                        <button
-                          className="cmb cmb1"
-                          onClick={() => this.togglePopup1(complaint)}
-                        >
-                          Reply
-                        </button>
-                      </td>
-                    </tr>
-                  </table>
+                          <button
+                            className="cmb cmb1"
+                            onClick={() => this.togglePopup1(complaint)}
+                          >
+                            Reply
+                          </button>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  {this.state.showPopup ? (
+                    <Popup
+                      _id={this.state.id}
+                      closePopup={() => this.togglePopup(complaint)}
+                    />
+                  ) : null}
+                  {this.state.showPopup1 ? (
+                    <Popup1
+                      _id={this.state.id}
+                      closePopup1={() => this.togglePopup1(complaint)}
+                    />
+                  ) : null}
                 </div>
-
-                {this.state.showPopup ? (
-                  <Popup
-                    _id={this.state.id}
-                    closePopup={() => this.togglePopup(complaint)}
-                  />
-                ) : null}
-                {this.state.showPopup1 ? (
-                  <Popup1
-                    _id={this.state.id}
-                    closePopup1={() => this.togglePopup1(complaint)}
-                  />
-                ) : null}
               </div>
-            </div>
-          ))}
+            ))}
+
+
+<label className="pc">Previous Complaints</label>
+
+          <div>
+            <table className="cpt">
+              <td>Title</td>
+              <td>Complaint</td>
+              <td>Date</td>
+              <td>Action</td>
+            </table>
+            {this.state.complaints
+              .filter((complaint) => complaint.status === "Done")
+              .map((complaint) => (
+                <div key={complaint._id}>
+                  <div>
+                    <div>
+                      <table className="cpt1">
+                        <tr>
+                          <td> {complaint.title}</td>
+                          <td> {complaint.message}</td>
+                          <td>{complaint.orderId.createdAt}</td>
+                          <td>
+                            <button
+                              className="cmb cmb1"
+                              onClick={() => this.togglePopup(complaint)}
+                            >
+                              Discount
+                            </button>
+
+                            <button
+                              className="cmb cmb1"
+                              onClick={() => this.togglePopup1(complaint)}
+                            >
+                              Reply
+                            </button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    {this.state.showPopup ? (
+                      <Popup
+                        _id={this.state.id}
+                        closePopup={() => this.togglePopup(complaint)}
+                      />
+                    ) : null}
+                    {this.state.showPopup1 ? (
+                      <Popup1
+                        _id={this.state.id}
+                        closePopup1={() => this.togglePopup1(complaint)}
+                      />
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     );

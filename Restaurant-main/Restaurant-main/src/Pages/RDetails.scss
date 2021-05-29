@@ -29,4 +29,72 @@
   }
   
   
+  .rdb {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .rdb1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  
+  .rdb1:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+  
+  .rdp {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.1);
+  }
+   
+  
+  
+  .rdp1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 30%;
+   
+    background-image: linear-gradient(
+      180deg,
+      #ffe1aa 0,
+      #ffd4a7 16.67%,
+      #ffc7a2 33.33%,
+      #f2b99d 50%,
+      #e1ac97 66.67%,
+      #d1a092 83.33%,
+      #c2968d 100%
+    );
+  }
+
+  .rdpb{
+    display: flex;
+    float: right;
+  }
+  
+  .rdpb1 {
+    height: 25px;
+    width: 30px;
+  }
   
